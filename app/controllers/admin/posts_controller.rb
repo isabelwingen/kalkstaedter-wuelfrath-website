@@ -1,5 +1,5 @@
 class Admin::PostsController < Admin::BaseController
-  before_action :set_post, only: [ :show, :edit, :update, :destroy ]
+  before_action :set_post, only: [ :edit, :update, :destroy ]
 
   def index
     @posts = Post.order(created_at: :desc)
