@@ -4,16 +4,17 @@
       <%= image_tag event.image, alt: event.title %>
     </div>
   <% else %>
-    <div class="card-image-placeholder card-image-placeholder--poster">
+    <div class="card-image-placeholder card-image-placeholder--poster" role="img"
+         aria-label="<%= event.party? ? "Party-Veranstaltung" : event.auftritt? ? "Auftritt" : "Sonstige Veranstaltung" %>">
       <%= event.party? ? "🎉" : event.auftritt? ? "🎵" : "📅" %>
     </div>
   <% end %>
   <div class="card-body">
     <h3><%= link_to event.title, event_path(event) %></h3>
     <div class="card-meta">
-      <span>📅 <%= l event.starts_at, format: :long %></span>
+      <span><span aria-hidden="true">📅</span> <%= l event.starts_at, format: :long %></span>
       <% if event.location.present? %>
-        <span>📍 <%= event.location %></span>
+        <span><span aria-hidden="true">📍</span> <%= event.location %></span>
       <% end %>
     </div>
     <% if event.description.present? %>

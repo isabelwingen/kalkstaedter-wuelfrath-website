@@ -13,32 +13,34 @@
   </head>
 
   <body>
+    <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
     <nav class="site-nav">
       <div class="container">
         <%= link_to root_path, class: "nav-brand" do %>
           Kalkstädter Wülfrath
           <span>Querflötenorchester e.V.</span>
         <% end %>
-        <button class="nav-toggle" aria-label="Menü öffnen" onclick="this.nextElementSibling.classList.toggle('open')">☰</button>
-        <ul class="nav-links">
-          <li><%= link_to "Start",            root_path,        class: nav_link_class(root_path) %></li>
-          <li><%= link_to "Veranstaltungen",  events_path,      class: nav_link_class(events_path) %></li>
-          <li><%= link_to "Berichte",         posts_path,       class: nav_link_class(posts_path) %></li>
-          <li><%= link_to "Mitmachen",        mitmachen_path, class: nav_link_class(mitmachen_path) %></li>
-          <li><%= link_to "Über uns",         ueber_uns_path, class: nav_link_class(ueber_uns_path) %></li>
-          <li><%= link_to "Presse & Links",   press_links_path, class: nav_link_class(press_links_path) %></li>
+        <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-nav"
+                onclick="var m=document.getElementById('main-nav');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))"><span aria-hidden="true">☰</span></button>
+        <ul class="nav-links" id="main-nav">
+          <li><%= link_to "Start",           root_path,        class: nav_link_class(root_path),        aria: { current: aria_current_page(root_path) } %></li>
+          <li><%= link_to "Veranstaltungen", events_path,      class: nav_link_class(events_path),      aria: { current: aria_current_page(events_path) } %></li>
+          <li><%= link_to "Berichte",        posts_path,       class: nav_link_class(posts_path),       aria: { current: aria_current_page(posts_path) } %></li>
+          <li><%= link_to "Mitmachen",       mitmachen_path,   class: nav_link_class(mitmachen_path),   aria: { current: aria_current_page(mitmachen_path) } %></li>
+          <li><%= link_to "Über uns",        ueber_uns_path,   class: nav_link_class(ueber_uns_path),   aria: { current: aria_current_page(ueber_uns_path) } %></li>
+          <li><%= link_to "Presse & Links",  press_links_path, class: nav_link_class(press_links_path), aria: { current: aria_current_page(press_links_path) } %></li>
         </ul>
       </div>
     </nav>
 
     <% if notice.present? %>
-      <div class="container"><p class="flash notice mt-2"><%= notice %></p></div>
+      <div class="container"><p class="flash notice mt-2" role="alert" aria-live="polite"><%= notice %></p></div>
     <% end %>
     <% if alert.present? %>
-      <div class="container"><p class="flash alert mt-2"><%= alert %></p></div>
+      <div class="container"><p class="flash alert mt-2" role="alert" aria-live="assertive"><%= alert %></p></div>
     <% end %>
 
-    <main>
+    <main id="main-content">
       <%= yield %>
     </main>
 

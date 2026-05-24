@@ -3,6 +3,13 @@ module ApplicationHelper
     current_page?(path) ? "active" : ""
   end
 
+  def aria_current_page(path)
+    return "page" if current_page?(path)
+    return "page" if path != root_path && request.path.start_with?(path)
+
+    nil
+  end
+
   def admin_nav_class(path)
     request.path.start_with?(path) ? "active" : ""
   end

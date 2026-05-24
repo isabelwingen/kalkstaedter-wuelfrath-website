@@ -14,6 +14,9 @@
   --color-text-muted:   #6b6560;
   --color-border:       #d8ede7;
   --color-danger:       #c0392b;
+  /* Barrierefreie Interaktionsfarbe (4.5:1 auf weißem Hintergrund) */
+  --color-link:         #1a6b55;
+  --color-link-hover:   #124f3e;
 
   --font-sans: system-ui, -apple-system, sans-serif;
   --radius:    6px;
@@ -39,7 +42,7 @@ body {
   flex-direction: column;
 }
 img { max-width: 100%; height: auto; display: block; }
-a { color: var(--color-primary-dark); text-decoration: none; }
+a { color: var(--color-link); text-decoration: none; }
 a:hover { text-decoration: underline; }
 h1, h2, h3 { line-height: 1.2; }
 h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
@@ -56,6 +59,23 @@ h3 { font-size: 1.2rem; }
   padding: 0 1.25rem;
 }
 main { flex: 1; padding: 2rem 0 4rem; }
+
+/* ============================================================
+   Skip-Link (Barrierefreiheit)
+   ============================================================ */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 9999;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-text);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 var(--radius) 0;
+}
+.skip-link:focus { top: 0; }
 
 /* ============================================================
    Navigation
@@ -83,7 +103,7 @@ main { flex: 1; padding: 2rem 0 4rem; }
   transition: background 0.15s, color 0.15s;
 }
 .nav-links a:hover, .nav-links a.active {
-  background: var(--color-primary-light); color: var(--color-primary-dark); text-decoration: none;
+  background: var(--color-primary-light); color: var(--color-link); text-decoration: none;
 }
 .nav-toggle {
   display: none; background: none; border: 1px solid var(--color-border);
@@ -117,7 +137,7 @@ main { flex: 1; padding: 2rem 0 4rem; }
    Flash
    ============================================================ */
 .flash { padding: 0.85rem 1.25rem; border-radius: var(--radius); margin-bottom: 1.25rem; font-weight: 500; }
-.flash.notice { background: var(--color-primary-light); color: var(--color-primary-dark); border: 1px solid var(--color-accent); }
+.flash.notice { background: var(--color-primary-light); color: var(--color-link); border: 1px solid var(--color-accent); }
 .flash.alert  { background: #fdecea; color: var(--color-danger); border: 1px solid #f5c6c6; }
 
 /* ============================================================
@@ -158,7 +178,7 @@ main { flex: 1; padding: 2rem 0 4rem; }
 }
 .badge-auftritt  { background: #e0f0ff; color: #2563ab; }
 .badge-party     { background: #fde8f5; color: #9b2580; }
-.badge-sonstiges { background: var(--color-primary-light); color: var(--color-primary-dark); }
+.badge-sonstiges { background: var(--color-primary-light); color: var(--color-link); }
 .badge-draft     { background: #fff3cd; color: #856404; }
 .badge-published { background: #d4edda; color: #1a6430; }
 
@@ -170,10 +190,10 @@ main { flex: 1; padding: 2rem 0 4rem; }
   font-size: 0.95rem; font-weight: 600; cursor: pointer; border: 2px solid transparent;
   transition: background 0.15s, color 0.15s, border-color 0.15s; text-align: center; text-decoration: none;
 }
-.btn-primary { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
-.btn-primary:hover { background: var(--color-primary-dark); border-color: var(--color-primary-dark); color: #fff; text-decoration: none; }
-.btn-outline { background: transparent; color: var(--color-primary-dark); border-color: var(--color-primary); }
-.btn-outline:hover { background: var(--color-primary-light); text-decoration: none; }
+.btn-primary { background: var(--color-primary); color: var(--color-text); border-color: var(--color-primary); }
+.btn-primary:hover { background: var(--color-primary-dark); border-color: var(--color-primary-dark); color: var(--color-text); text-decoration: none; }
+.btn-outline { background: transparent; color: var(--color-link); border-color: var(--color-primary); }
+.btn-outline:hover { background: var(--color-primary-light); color: var(--color-link); text-decoration: none; }
 .btn-danger { background: transparent; color: var(--color-danger); border-color: var(--color-danger); font-size: 0.85rem; padding: 0.3rem 0.75rem; }
 .btn-danger:hover { background: var(--color-danger); color: #fff; text-decoration: none; }
 .btn-sm { padding: 0.3rem 0.75rem; font-size: 0.85rem; }
@@ -290,7 +310,7 @@ main { flex: 1; padding: 2rem 0 4rem; }
 .footer-col p, .footer-col address { font-style: normal; line-height: 1.8; }
 .footer-col ul { list-style: none; }
 .footer-col ul li + li { margin-top: 0.35rem; }
-.footer-bottom { border-top: 1px solid #3a3530; padding-top: 1.25rem; text-align: center; color: #7a7570; font-size: 0.82rem; }
+.footer-bottom { border-top: 1px solid #3a3530; padding-top: 1.25rem; text-align: center; color: #c8c4c0; font-size: 0.82rem; }
 
 /* ============================================================
    Utility
@@ -417,7 +437,7 @@ main { flex: 1; padding: 2rem 0 4rem; }
   display: block;
   font-size: 1.65rem;
   font-weight: 700;
-  color: var(--color-primary-dark);
+  color: var(--color-link);
   line-height: 1;
 }
 
@@ -427,7 +447,7 @@ main { flex: 1; padding: 2rem 0 4rem; }
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--color-primary-dark);
+  color: var(--color-link);
   margin-top: 0.2rem;
 }
 
@@ -474,20 +494,32 @@ main { flex: 1; padding: 2rem 0 4rem; }
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   padding: 3.5rem 0;
   text-align: center;
-  color: #fff;
+  color: var(--color-text);
   margin-top: 1px; /* verhindert Border-Kollaps mit .section */
 }
 
 .home-cta h2 {
-  color: #fff;
+  color: var(--color-text);
   margin-bottom: 0.75rem;
 }
 
 .home-cta p {
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--color-text);
   font-size: 1.05rem;
   max-width: 540px;
   margin: 0 auto 1.75rem;
+}
+
+.home-cta .btn-light {
+  color: var(--color-text);
+  border-color: rgba(42, 37, 32, 0.45);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.home-cta .btn-light:hover {
+  color: var(--color-text);
+  background: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
 }
 
 .home-cta__actions {
@@ -613,7 +645,7 @@ main { flex: 1; padding: 2rem 0 4rem; }
   border-radius: var(--radius);
   padding: 1rem 1.25rem;
   margin-bottom: 1.25rem;
-  color: var(--color-primary-dark);
+  color: var(--color-link);
 }
 
 /* Chronik-Timeline */
@@ -633,7 +665,7 @@ main { flex: 1; padding: 2rem 0 4rem; }
 .chronik-jahr {
   font-size: 1rem;
   font-weight: 700;
-  color: var(--color-primary-dark);
+  color: var(--color-link);
   min-width: 60px;
   padding-top: 0.1rem;
 }
