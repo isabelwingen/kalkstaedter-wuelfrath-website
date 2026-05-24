@@ -16,14 +16,13 @@
     <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
     <nav class="site-nav">
       <div class="container">
-        <%= link_to root_path, class: "nav-brand", aria: { hidden: "true" }, tabindex: "-1" do %>
+        <%= link_to root_path, class: "nav-brand" do %>
           Kalkstädter Wülfrath
           <span>Querflötenorchester e.V.</span>
         <% end %>
         <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-nav"
                 onclick="var m=document.getElementById('main-nav');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))"><span aria-hidden="true">☰</span></button>
         <ul class="nav-links" id="main-nav">
-          <li><%= link_to "Start",           root_path,        class: nav_link_class(root_path),        aria: { current: aria_current_page(root_path) } %></li>
           <li><%= link_to "Veranstaltungen", events_path,      class: nav_link_class(events_path),      aria: { current: aria_current_page(events_path) } %></li>
           <li><%= link_to "Berichte",        posts_path,       class: nav_link_class(posts_path),       aria: { current: aria_current_page(posts_path) } %></li>
           <li><%= link_to "Mitmachen",       mitmachen_path,   class: nav_link_class(mitmachen_path),   aria: { current: aria_current_page(mitmachen_path) } %></li>
