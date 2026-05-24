@@ -7,7 +7,7 @@
     <div class="card-image-placeholder" role="img" aria-label="Bericht ohne Titelbild">📝</div>
   <% end %>
   <div class="card-body">
-    <h3><%= link_to post.title, post_path(post) %></h3>
+    <h3><%= post.title %></h3>
     <div class="card-meta">
       <% if post.published_at.present? %>
         <span><span aria-hidden="true">📅</span> <%= l post.published_at, format: :long %></span>
@@ -16,6 +16,6 @@
     <p><%= truncate(post.content, length: 150) %></p>
   </div>
   <div class="card-footer">
-    <%= link_to "Weiterlesen", post_path(post), class: "btn btn-outline btn-sm", aria: { hidden: "true" }, tabindex: "-1" %>
+    <%= link_to post_path(post), class: "btn btn-outline btn-sm", aria: { label: "#{post.title} lesen" } do %>Weiterlesen<% end %>
   </div>
 </article>

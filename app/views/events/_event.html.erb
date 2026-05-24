@@ -10,7 +10,7 @@
     </div>
   <% end %>
   <div class="card-body">
-    <h3><%= link_to event.title, event_path(event) %></h3>
+    <h3><%= event.title %></h3>
     <div class="card-meta">
       <span><span aria-hidden="true">📅</span> <%= l event.starts_at, format: :long %></span>
       <% if event.location.present? %>
@@ -23,7 +23,7 @@
   </div>
   <div class="card-footer">
     <%= event_type_badge(event.event_type) %>
-    <%= link_to "Details", event_path(event), class: "btn btn-outline btn-sm", aria: { hidden: "true" }, tabindex: "-1" %>
+    <%= link_to event_path(event), class: "btn btn-outline btn-sm", aria: { label: "Details zu #{event.title}" } do %>Details<% end %>
     <% if event.ticket_url.present? %>
       <a href="<%= event.ticket_url %>" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Tickets</a>
     <% end %>
