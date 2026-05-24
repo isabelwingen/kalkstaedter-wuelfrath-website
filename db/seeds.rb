@@ -36,6 +36,17 @@ end
 # ── Veranstaltungen ───────────────────────────────────────────────────────────
 events = [
   {
+    title:      "Auftritt im Neandertal No. 1",
+    event_type: "auftritt",
+    starts_at:  Time.zone.parse("2026-07-05 15:00"),
+    location:   "Neandertal No. 1, Wülfrath",
+    ticket_url: nil,
+    published:  true,
+    description: "Ein Auftritt in kleinem, gemütlichem Rahmen: Die Kalkstädter spielen in der Gastronomie Neandertal No. 1. Eintritt frei – einfach vorbeikommen!",
+    image_url:  "#{BASE}/photo-1415201364774-f6f0bb35f28f?w=900&q=80&fm=jpg",
+    image_name: "neandertal-auftritt.jpg"
+  },
+  {
     title:      "Mallorca-Party",
     event_type: "party",
     starts_at:  Time.zone.parse("2026-06-06 20:00"),
@@ -57,36 +68,6 @@ events = [
     TEXT
     image_url:  "#{BASE}/photo-1533174072545-7a4b6ad7a6c3?w=900&q=80&fm=jpg",
     image_name: "mallorca-party.jpg"
-  },
-  {
-    title:      "Weihnachtskonzert 2026",
-    event_type: "auftritt",
-    starts_at:  Time.zone.parse("2026-12-13 17:00"),
-    location:   "Vereinshaus, Flandersbacher Str. 19a, Wülfrath",
-    ticket_url: nil,
-    published:  true,
-    description: <<~TEXT,
-      Unser jährliches Weihnachtskonzert stimmt euch auf die besinnlichste Zeit des Jahres ein.
-
-      Das Orchester der Kalkstädter präsentiert ein festliches Programm mit Weihnachtsklassikern, beschwingten Swing-Arrangements und natürlich dem ein oder anderen Überraschungsstück. Eintritt frei – über eine Spende freuen wir uns.
-    TEXT
-    image_url:  "#{BASE}/photo-1512389142860-9c449e58a543?w=900&q=80&fm=jpg",
-    image_name: "weihnachtskonzert.jpg"
-  },
-  {
-    title:      "Jahreskonzert 2026",
-    event_type: "auftritt",
-    starts_at:  Time.zone.parse("2026-11-08 17:00"),
-    location:   "Stadthalle Wülfrath",
-    ticket_url: nil,
-    published:  true,
-    description: <<~TEXT,
-      Das Highlight des Vereinsjahres: Unser großes Jahreskonzert in der Stadthalle Wülfrath.
-
-      Unter der musikalischen Leitung von Laura Brunswig präsentiert das Orchester das erarbeitete Jahresprogramm – von klassischen Werken bis hin zu modernen Arrangements aus Film, Pop und Musical.
-    TEXT
-    image_url:  "#{BASE}/photo-1465847899084-d164df4dedc6?w=900&q=80&fm=jpg",
-    image_name: "jahreskonzert.jpg"
   },
   {
     title:      "Maikonzert 2026 – Kalkstädter und Freunde",
@@ -144,45 +125,31 @@ posts = [
     published_at: Date.new(2025, 6, 3),
     published:    true,
     content: <<~TEXT,
-      Ein unvergessliches Wochenende liegt hinter uns: Die Kalkstädter Wülfrath haben an der Deutschen Meisterschaft 2025 in Ulm teilgenommen und eine beeindruckende Vorstellung abgeliefert.
+      Ein unvergessliches Wochenende liegt hinter uns: Die Kalkstädter Wülfrath haben an der Deutschen Meisterschaft der Querflötenorchester 2025 in Ulm teilgenommen und eine beeindruckende Vorstellung abgeliefert.
 
-      Nach monatelanger intensiver Vorbereitung unter der Leitung von Laura Brunswig traten wir gegen Ensembles aus dem ganzen Bundesgebiet an. Die Stimmung im Orchester war ausgezeichnet – und das hat man gehört!
+      Nach monatelanger intensiver Vorbereitung unter der Leitung von Tanja Bohn traten wir gegen Ensembles aus dem ganzen Bundesgebiet an. Die Stimmung im Orchester war ausgezeichnet – und das hat man gehört!
 
       Wir sind unglaublich stolz auf unsere Musikerinnen und Musiker, die diesen besonderen Moment gemeinsam erlebt haben. Ein großes Dankeschön gilt auch unseren Familien und Fans, die uns tatkräftig unterstützt haben.
-
-      Bilder vom Wochenende findet ihr auf unserem Instagram-Kanal.
     TEXT
     image_url:  "#{BASE}/photo-1507838153414-b4b713384a76?w=900&q=80&fm=jpg",
     image_name: "deutsche-meisterschaft.jpg"
   },
   {
-    title:        "Rückblick: Weihnachtskonzert 2025",
-    published_at: Date.new(2025, 12, 16),
+    title:        "Rückblick: Maikonzert 2026 – Frühlingsstimmung an der Flandersbacher Straße",
+    published_at: Date.new(2026, 5, 2),
     published:    true,
     content: <<~TEXT,
-      Bei stimmungsvollem Kerzenschein und vor vollem Haus präsentierten die Kalkstädter ihr diesjähriges Weihnachtskonzert im Vereinshaus.
+      Der 1. Mai ist bei den Kalkstädtern Tradition: Auf dem Hof des Vereinshauses an der Flandersbacher Straße fand auch in diesem Jahr das beliebte Freiluftkonzert statt. Das Wetter spielte perfekt mit, die Sonne ließ sich den ganzen Tag nicht lumpen – und der Andrang war entsprechend riesig.
 
-      Das Publikum wurde mit einem bunten Mix aus klassischen Weihnachtsliedern, jazzigen Swing-Arrangements und einem mitreißenden Medley aus Filmmelodien überrascht. Als Zugabe gab es auf besonderen Wunsch noch „Last Christmas" in einer ganz eigenen Flöten-Version – die Standing Ovations sprachen für sich.
+      Unter der Leitung von Laura Brunswig präsentierte das Orchester ein rein eigenes Programm – ohne Gastensemble. In zwei Teilen blätterten die Musiker durch ihr breites Repertoire: von klassischen Werken über Filmmusik bis hin zu schwungvollen Arrangements, die zum Mitwippen einluden.
 
-      Wir danken allen Besucherinnen und Besuchern für den schönen Abend und wünschen ein frohes Fest!
+      Für das leibliche Wohl war bestens gesorgt: Gegrilltes, Kaltgetränke und Kaffee hielten Besucher und Musikerinnen bei Laune. Die Kinder hatten ihre eigene Attraktion – eine Hüpfburg, die den ganzen Nachmittag in Betrieb war. Der Eintritt war wie immer frei.
+
+      Ein gelungener Feiertag – wir freuen uns aufs nächste Jahr!
     TEXT
-    image_url:  "#{BASE}/photo-1519892300165-cb5542fb47c7?w=900&q=80&fm=jpg",
-    image_name: "weihnachtskonzert-rueckblick.jpg"
+    image_url:  "#{BASE}/photo-1467810563316-b5476525c0f9?w=900&q=80&fm=jpg",
+    image_name: "maikonzert-rueckblick.jpg"
   },
-  {
-    title:        "Neue Musikschülerinnen und Musikschüler begrüßt",
-    published_at: Date.new(2025, 9, 8),
-    published:    true,
-    content: <<~TEXT,
-      Zu Beginn des neuen Musikschuljahres durften wir eine Reihe neuer Schülerinnen und Schüler in unserer vereinseigenen Musikschule willkommen heißen.
-
-      Ob Kinder, die zum ersten Mal eine Querflöte in den Händen halten, oder Erwachsene, die sich endlich ihren Traum vom Musizieren erfüllen – der Start ist immer aufregend. Wir freuen uns auf den gemeinsamen musikalischen Weg!
-
-      Wer sich noch anmelden möchte: Informationen findet ihr unter dem Menüpunkt Musikschule oder per Mail an info@kalkstaedter-wuelfrath.de.
-    TEXT
-    image_url:  "#{BASE}/photo-1598488035139-bdbb2231ce04?w=900&q=80&fm=jpg",
-    image_name: "neue-musikschueler.jpg"
-  }
 ]
 
 posts.each do |attrs|
