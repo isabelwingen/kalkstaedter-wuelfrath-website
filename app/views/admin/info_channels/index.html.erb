@@ -12,10 +12,10 @@
     <tbody>
       <% @info_channels.each do |channel| %>
         <tr>
-          <td><strong><%= platform_icon(channel.platform) %> <%= channel.name %></strong></td>
-          <td><%= platform_label(channel.platform) %></td>
-          <td><a href="<%= channel.url %>" target="_blank" rel="noopener" class="table-link">← Link öffnen</a></td>
-          <td>
+          <td data-label="Name"><strong><%= platform_icon(channel.platform) %> <%= channel.name %></strong></td>
+          <td data-label="Plattform"><%= platform_label(channel.platform) %></td>
+          <td data-label="URL"><a href="<%= channel.url %>" target="_blank" rel="noopener" class="table-link">Link öffnen</a></td>
+          <td data-label="Aktionen">
             <div class="actions">
               <%= link_to "Bearbeiten", edit_admin_info_channel_path(channel), class: "btn btn-outline btn-sm" %>
               <%= button_to "Löschen", admin_info_channel_path(channel), method: :delete, class: "btn btn-danger",

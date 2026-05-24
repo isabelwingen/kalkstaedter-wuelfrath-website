@@ -12,10 +12,10 @@
     <tbody>
       <% @press_links.each do |link| %>
         <tr>
-          <td><strong><%= link.title %></strong></td>
-          <td><%= link.publication %></td>
-          <td><%= link.published_on.present? ? l(link.published_on, format: :long) : "–" %></td>
-          <td>
+          <td data-label="Titel"><strong><%= link.title %></strong></td>
+          <td data-label="Zeitung"><%= link.publication %></td>
+          <td data-label="Datum"><%= link.published_on.present? ? l(link.published_on, format: :long) : "–" %></td>
+          <td data-label="Aktionen">
             <div class="actions">
               <%= link_to "Bearbeiten", edit_admin_press_link_path(link), class: "btn btn-outline btn-sm" %>
               <%= button_to "Löschen", admin_press_link_path(link), method: :delete, class: "btn btn-danger",

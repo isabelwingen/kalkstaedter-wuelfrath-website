@@ -19,16 +19,16 @@
     <tbody>
       <% @events.each do |event| %>
         <tr>
-          <td><strong><%= event.title %></strong></td>
-          <td><%= event_type_badge(event.event_type) %></td>
-          <td><%= l event.starts_at, format: :short %></td>
-          <td><%= event.location %></td>
-          <td>
+          <td data-label="Titel"><strong><%= event.title %></strong></td>
+          <td data-label="Typ"><%= event_type_badge(event.event_type) %></td>
+          <td data-label="Datum"><%= l event.starts_at, format: :short %></td>
+          <td data-label="Ort"><%= event.location %></td>
+          <td data-label="Status">
             <span class="badge <%= event.published? ? 'badge-published' : 'badge-draft' %>">
               <%= event.published? ? "Veröffentlicht" : "Entwurf" %>
             </span>
           </td>
-          <td>
+          <td data-label="Aktionen">
             <div class="actions">
               <%= link_to "Bearbeiten", edit_admin_event_path(event), class: "btn btn-outline btn-sm" %>
               <%= button_to "Löschen", admin_event_path(event), method: :delete, class: "btn btn-danger",
