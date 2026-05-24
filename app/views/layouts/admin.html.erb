@@ -14,7 +14,7 @@
 
   <body class="admin-body">
     <div class="admin-layout">
-      <aside class="admin-sidebar">
+      <aside class="admin-sidebar" id="admin-sidebar">
         <div class="admin-sidebar-brand">
           <strong>Kalkstädter Wülfrath</strong>
           <span>Admin-Bereich</span>
@@ -36,7 +36,11 @@
 
       <div class="admin-main">
         <div class="admin-topbar">
-          <h1><%= content_for?(:title) ? yield(:title) : "Admin" %></h1>
+          <div class="admin-topbar-left">
+            <button class="admin-nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="admin-sidebar"
+                    onclick="var s=document.getElementById('admin-sidebar');s.classList.toggle('open');this.setAttribute('aria-expanded',s.classList.contains('open'))"><span aria-hidden="true">☰</span></button>
+            <h1><%= content_for?(:title) ? yield(:title) : "Admin" %></h1>
+          </div>
           <span class="admin-topbar-user">Eingeloggt als <%= Current.user.email_address %></span>
         </div>
 
