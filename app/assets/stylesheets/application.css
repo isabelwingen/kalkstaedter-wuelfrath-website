@@ -306,7 +306,7 @@ main { flex: 1; padding: 2rem 0 4rem; }
 .site-footer a { color: var(--color-accent); }
 .site-footer a:hover { color: #fff; }
 .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
-.footer-col h4 { color: #fff; margin-bottom: 0.75rem; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.footer-col h2 { color: #fff; margin-bottom: 0.75rem; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.05em; }
 .footer-col p, .footer-col address { font-style: normal; line-height: 1.8; }
 .footer-col ul { list-style: none; }
 .footer-col ul li + li { margin-top: 0.35rem; }

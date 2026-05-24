@@ -16,6 +16,6 @@
     <p><%= truncate(post.content, length: 150) %></p>
   </div>
   <div class="card-footer">
-    <%= link_to "Weiterlesen", post_path(post), class: "btn btn-outline btn-sm" %>
+    <%= link_to "Weiterlesen", post_path(post), class: "btn btn-outline btn-sm", aria: { hidden: "true" }, tabindex: "-1" %>
   </div>
 </article>

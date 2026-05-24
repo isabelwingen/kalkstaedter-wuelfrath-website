@@ -16,7 +16,7 @@
     <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
     <nav class="site-nav">
       <div class="container">
-        <%= link_to root_path, class: "nav-brand" do %>
+        <%= link_to root_path, class: "nav-brand", aria: { hidden: "true" }, tabindex: "-1" do %>
           Kalkstädter Wülfrath
           <span>Querflötenorchester e.V.</span>
         <% end %>
@@ -48,7 +48,7 @@
       <div class="container">
         <div class="footer-grid">
           <div class="footer-col">
-            <h4>Kalkstädter Wülfrath e.V.</h4>
+            <h2>Kalkstädter Wülfrath e.V.</h2>
             <address>
               Flandersbacher Str. 19a<br>
               42489 Wülfrath<br>
@@ -56,7 +56,7 @@
             </address>
           </div>
           <div class="footer-col">
-            <h4>Navigation</h4>
+            <h2>Navigation</h2>
             <ul>
               <li><%= link_to "Veranstaltungen", events_path %></li>
               <li><%= link_to "Berichte", posts_path %></li>
@@ -66,7 +66,7 @@
             </ul>
           </div>
           <div class="footer-col">
-            <h4>Soziale Medien</h4>
+            <h2>Soziale Medien</h2>
             <ul>
               <li><a href="https://www.instagram.com/kalkstaedterwuelfrath/" target="_blank" rel="noopener">Instagram</a></li>
               <li><a href="https://www.facebook.com/kalkstaedter/" target="_blank" rel="noopener">Facebook</a></li>

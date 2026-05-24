@@ -23,7 +23,7 @@
   </div>
   <div class="card-footer">
     <%= event_type_badge(event.event_type) %>
-    <%= link_to "Details", event_path(event), class: "btn btn-outline btn-sm" %>
+    <%= link_to "Details", event_path(event), class: "btn btn-outline btn-sm", aria: { hidden: "true" }, tabindex: "-1" %>
     <% if event.ticket_url.present? %>
       <a href="<%= event.ticket_url %>" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Tickets</a>
     <% end %>
