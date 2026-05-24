@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get "datenschutz", to: "static_pages#datenschutz", as: :datenschutz
 
   # Admin-Bereich
+  get "admin/login", to: "sessions#new", as: :admin_login
+
   namespace :admin do
     root "dashboard#index"
 
