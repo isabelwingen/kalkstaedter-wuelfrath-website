@@ -1,78 +1,85 @@
-<div class="hero">
-  <h1>Willkommen bei den Kalkstädtern</h1>
-  <p>Querflötenorchester aus Wülfrath – Musik für Menschen jeden Alters</p>
-  <%= link_to "Jetzt mitmachen!", mitmachen_path, class: "btn btn-primary" %>
-</div>
-
-<div class="orchester-foto">
-  <%= image_tag "orchester.png", alt: "Das Orchester der Kalkstädter Wülfrath e.V.", class: "orchester-foto__img" %>
-  <p class="orchester-foto__caption">Das Orchester der Kalkstädter Wülfrath e.V.</p>
+<div class="home-hero">
+  <%= image_tag "orchester.png", alt: "Das Orchester der Kalkstädter Wülfrath e.V.", class: "home-hero__img" %>
+  <div class="home-hero__overlay">
+    <div class="container">
+      <div class="home-hero__content">
+        <p class="home-hero__eyebrow">Querflötenorchester e.V. · Wülfrath</p>
+        <h1>Das Querflötenorchester aus Wülfrath.</h1>
+        <p>Querflöten, Percussion und ein Repertoire, das Spaß macht – bei Konzerten, Partys und allem dazwischen.</p>
+        <div class="home-hero__actions">
+          <%= link_to "Veranstaltungen", events_path, class: "btn btn-primary" %>
+          <%= link_to "Über uns", ueber_uns_path, class: "btn btn-light" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <% if @upcoming_events.any? %>
-<div class="section">
+<section class="section">
   <div class="container">
     <div class="section-header">
       <h2>Nächste Veranstaltungen</h2>
       <%= link_to "Alle Veranstaltungen →", events_path %>
     </div>
-    <div class="card-grid">
-      <%= render @upcoming_events %>
-    </div>
+    <ul class="event-agenda">
+      <% @upcoming_events.each do |event| %>
+        <li class="event-agenda__item">
+          <time class="event-agenda__date" datetime="<%= event.starts_at.to_date %>">
+            <span class="event-agenda__day"><%= event.starts_at.strftime("%-d") %></span>
+            <span class="event-agenda__month"><%= l(event.starts_at, format: "%b") %></span>
+          </time>
+          <div class="event-agenda__info">
+            <h3><%= link_to event.title, event_path(event) %></h3>
+            <% if event.location.present? %>
+              <span class="event-agenda__location"><%= event.location %></span>
+            <% end %>
+          </div>
+          <div class="event-agenda__aside">
+            <%= event_type_badge(event.event_type) %>
+            <% if event.ticket_url.present? %>
+              <a href="<%= event.ticket_url %>" target="_blank" rel="noopener" class="btn btn-sm btn-outline">Tickets</a>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
   </div>
-</div>
+</section>
 <% end %>
 
 <% if @recent_posts.any? %>
-<div class="section">
+<section class="section">
   <div class="container">
     <div class="section-header">
-      <h2>Aktuelle Berichte</h2>
+      <h2>Aktuelles</h2>
       <%= link_to "Alle Berichte →", posts_path %>
     </div>
     <div class="card-grid">
       <%= render @recent_posts %>
     </div>
   </div>
-</div>
+</section>
 <% end %>
 
-<div class="section">
+<section class="home-cta">
   <div class="container">
-    <div class="section-header">
-      <h2>Bleib auf dem Laufenden</h2>
+    <h2>Lust, dabei zu sein?</h2>
+    <p>Wir freuen uns über neue Gesichter – ob erfahrene Musikerinnen und Musiker oder Anfänger, die Querflöte oder Schlagwerk entdecken möchten.</p>
+    <div class="home-cta__actions">
+      <%= link_to "Mitmachen", mitmachen_path, class: "btn btn-light" %>
+      <%= link_to "Zur Musikschule", musikschule_path, class: "btn btn-light" %>
     </div>
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-image-placeholder">📸</div>
-        <div class="card-body">
-          <h3>Instagram</h3>
-          <p>Fotos und Kurzvideos von Proben, Auftritten und Vereinsleben.</p>
-        </div>
-        <div class="card-footer">
-          <a href="https://www.instagram.com/kalkstaedterwuelfrath/" target="_blank" rel="noopener" class="btn btn-outline">@kalkstaedterwuelfrath</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-image-placeholder">👥</div>
-        <div class="card-body">
-          <h3>Facebook</h3>
-          <p>Neuigkeiten und Ankündigungen auf unserer Facebook-Seite.</p>
-        </div>
-        <div class="card-footer">
-          <a href="https://www.facebook.com/kalkstaedter/" target="_blank" rel="noopener" class="btn btn-outline">facebook.com/kalkstaedter</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-image-placeholder">💬</div>
-        <div class="card-body">
-          <h3>WhatsApp-Kanal</h3>
-          <p>Direkt auf dein Handy – keine Nachrichten mehr verpassen.</p>
-        </div>
-        <div class="card-footer">
-          <a href="https://whatsapp.com/channel/0029Vb6bL0yGk1FufD0T5c2S" target="_blank" rel="noopener" class="btn btn-outline">Kanal abonnieren</a>
-        </div>
-      </div>
-    </div>
+  </div>
+</section>
+
+<div class="home-social">
+  <div class="container">
+    <p class="home-social__label">Folgt uns auf</p>
+    <ul class="social-row">
+      <li><a href="https://www.instagram.com/kalkstaedterwuelfrath/" target="_blank" rel="noopener">Instagram · @kalkstaedterwuelfrath</a></li>
+      <li><a href="https://www.facebook.com/kalkstaedter/" target="_blank" rel="noopener">Facebook · Kalkstädter Wülfrath</a></li>
+      <li><a href="https://whatsapp.com/channel/0029Vb6bL0yGk1FufD0T5c2S" target="_blank" rel="noopener">WhatsApp-Kanal abonnieren</a></li>
+    </ul>
   </div>
 </div>

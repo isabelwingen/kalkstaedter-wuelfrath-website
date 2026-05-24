@@ -240,27 +240,237 @@ main { flex: 1; padding: 2rem 0 4rem; }
   background: var(--color-surface); border: 1px dashed var(--color-border); border-radius: var(--radius);
 }
 
-/* Orchester-Foto auf der Startseite */
-.orchester-foto {
+/* ============================================================
+   Startseite – Hero
+   ============================================================ */
+.home-hero {
   position: relative;
+  overflow: hidden;
   background: var(--color-text);
+  margin-top: -2rem; /* hebt main-padding auf */
 }
 
-.orchester-foto__img {
+.home-hero__img {
   width: 100%;
+  max-height: 580px;
+  object-fit: cover;
+  object-position: center center;
   display: block;
+  opacity: 0.82;
 }
 
-.orchester-foto__caption {
+.home-hero__overlay {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 0.6rem 1.25rem;
-  background: rgba(42, 37, 32, 0.55);
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.72) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    transparent 100%
+  );
+  display: flex;
+  align-items: flex-start;
+}
+
+.home-hero__content {
+  padding: 2.5rem 0 3rem;
   color: #fff;
-  font-size: 0.85rem;
+  max-width: 640px;
+}
+
+.home-hero__eyebrow {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-accent);
+  margin-bottom: 0.6rem;
+}
+
+.home-hero__content h1 {
+  color: #fff;
+  margin-bottom: 0.6rem;
+}
+
+.home-hero__content p {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+
+.home-hero__actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn-light {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.55);
+}
+.btn-light:hover {
+  background: rgba(255, 255, 255, 0.28);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ============================================================
+   Startseite – Veranstaltungs-Agenda
+   ============================================================ */
+.event-agenda {
+  list-style: none;
+  padding: 0;
+}
+
+.event-agenda__item {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.event-agenda__item:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+.event-agenda__date {
+  flex-shrink: 0;
+  width: 54px;
   text-align: center;
+  background: var(--color-primary-light);
+  border-radius: var(--radius);
+  padding: 0.45rem 0.25rem;
+  line-height: 1;
+}
+
+.event-agenda__day {
+  display: block;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  line-height: 1;
+}
+
+.event-agenda__month {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-primary-dark);
+  margin-top: 0.2rem;
+}
+
+.event-agenda__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.event-agenda__info h3 {
+  font-size: 1rem;
+  margin-bottom: 0.15rem;
+}
+
+.event-agenda__info h3 a {
+  color: var(--color-text);
+}
+
+.event-agenda__info h3 a:hover {
+  color: var(--color-primary-dark);
+  text-decoration: none;
+}
+
+.event-agenda__location {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.event-agenda__aside {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+@media (max-width: 560px) {
+  .event-agenda__item { flex-wrap: wrap; }
+  .event-agenda__aside { margin-left: calc(54px + 1.25rem); }
+}
+
+/* ============================================================
+   Startseite – Mitmachen-CTA
+   ============================================================ */
+.home-cta {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  padding: 3.5rem 0;
+  text-align: center;
+  color: #fff;
+  margin-top: 1px; /* verhindert Border-Kollaps mit .section */
+}
+
+.home-cta h2 {
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.home-cta p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.05rem;
+  max-width: 540px;
+  margin: 0 auto 1.75rem;
+}
+
+.home-cta__actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   Startseite – Soziale Medien
+   ============================================================ */
+.home-social {
+  padding: 2rem 0 2.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.home-social__label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.social-row {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.social-row a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+.social-row a:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  text-decoration: none;
 }
 
 /* Statische Seiten (Über uns, Mitmachen etc.) */
