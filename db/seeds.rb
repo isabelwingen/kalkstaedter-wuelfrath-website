@@ -10,6 +10,17 @@ rescue => e
   puts "  → Bild konnte nicht geladen werden: #{e.message}"
 end
 
+def attach_local_image(record, path, filename)
+  return if record.image.attached?
+  content_type = File.extname(path) == ".png" ? "image/png" : "image/jpeg"
+  record.image.attach(io: File.open(path), filename: filename, content_type: content_type)
+  puts "  → Bild angehängt: #{filename}"
+rescue => e
+  puts "  → Bild konnte nicht angehängt werden: #{e.message}"
+end
+
+SEEDS_IMAGES = File.expand_path("seeds/images", __dir__)
+
 BASE = "https://images.unsplash.com"
 
 # ── Admin-User ────────────────────────────────────────────────────────────────
@@ -66,8 +77,8 @@ events = [
 
       Im Ticketpreis sind 3 Euro Mindestverzehr enthalten.
     TEXT
-    image_url:  "#{BASE}/photo-1533174072545-7a4b6ad7a6c3?w=900&q=80&fm=jpg",
-    image_name: "mallorca-party.jpg"
+    image_path: "#{SEEDS_IMAGES}/mallorca-party.png",
+    image_name: "mallorca-party.png"
   },
   {
     title:      "Maikonzert 2026 – Kalkstädter und Freunde",
@@ -81,8 +92,8 @@ events = [
 
       Für Sitzgelegenheiten, Bratwurst vom Grill, Kaffee, Kuchen und Getränke ist gesorgt. Für die Kinder gibt es eine Hüpfburg. Eintritt frei!
     TEXT
-    image_url:  "#{BASE}/photo-1467810563316-b5476525c0f9?w=900&q=80&fm=jpg",
-    image_name: "maikonzert.jpg"
+    image_path: "#{SEEDS_IMAGES}/maikonzert.png",
+    image_name: "maikonzert.png"
   },
   {
     title:      "Rosenmontagsparty 2026",
@@ -92,30 +103,24 @@ events = [
     ticket_url: nil,
     published:  true,
     description: "Die närrische Jahreszeit feiern wir gemeinsam im Vereinshaus! Kostüme erwünscht, gute Laune garantiert.",
-    image_url:  "#{BASE}/photo-1514525253161-7a46d19cd819?w=900&q=80&fm=jpg",
-    image_name: "rosenmontagsparty.jpg"
+    image_path: "#{SEEDS_IMAGES}/karnevalsparty.png",
+    image_name: "karnevalsparty.png"
   },
-  {
-    title:      "Neujahrsempfang 2026",
-    event_type: "sonstiges",
-    starts_at:  Time.zone.parse("2026-01-11 15:00"),
-    location:   "Vereinshaus, Flandersbacher Str. 19a, Wülfrath",
-    ticket_url: nil,
-    published:  true,
-    description: "Der vereinsinterne Neujahrsempfang – wir stoßen gemeinsam auf das neue Vereinsjahr an und blicken auf das kommende Programm.",
-    image_url:  "#{BASE}/photo-1481824429379-07aa5e5b0739?w=900&q=80&fm=jpg",
-    image_name: "neujahrsempfang.jpg"
-  }
 ]
 
 events.each do |attrs|
   image_url  = attrs.delete(:image_url)
+  image_path = attrs.delete(:image_path)
   image_name = attrs.delete(:image_name)
   event = Event.find_or_create_by!(title: attrs[:title], starts_at: attrs[:starts_at]) do |e|
     e.assign_attributes(attrs)
     puts "Veranstaltung erstellt: #{e.title}"
   end
-  attach_image(event, image_url, image_name)
+  if image_path
+    attach_local_image(event, image_path, image_name)
+  else
+    attach_image(event, image_url, image_name)
+  end
 end
 
 # ── Berichte ──────────────────────────────────────────────────────────────────
