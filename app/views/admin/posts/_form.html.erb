@@ -25,10 +25,16 @@
     <%= f.label :image, "Titelbild (optional)" %>
     <% if post.image.attached? %>
       <div class="image-preview">
-        <%= image_tag post.image, alt: post.title %>
+        <%= image_tag post.image, alt: post.image_alt.presence || "" %>
       </div>
     <% end %>
     <%= f.file_field :image, accept: "image/*" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image_alt, "Alternativtext (Bild)" %>
+    <%= f.text_field :image_alt, placeholder: "z. B. „Orchester spielt auf der Bühne im Stadtpark"" %>
+    <p class="form-hint">Beschreibt das Bild für Screenreader. Leer lassen, wenn das Bild rein dekorativ ist und der Titel bereits alles erklärt.</p>
   </div>
 
   <div class="form-group">

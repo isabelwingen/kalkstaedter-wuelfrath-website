@@ -13,7 +13,7 @@
 
     <% if @post.image.attached? %>
       <div class="article-image">
-        <%= image_tag @post.image, alt: @post.title %>
+        <%= image_tag @post.image, alt: @post.image_alt.presence || "" %>
       </div>
     <% end %>
 

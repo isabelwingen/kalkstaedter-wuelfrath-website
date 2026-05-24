@@ -1,7 +1,7 @@
 <article class="card">
   <% if post.image.attached? %>
     <div class="card-image">
-      <%= image_tag post.image, alt: post.title %>
+      <%= image_tag post.image, alt: post.image_alt.presence || "" %>
     </div>
   <% else %>
     <div class="card-image-placeholder" role="img" aria-label="Bericht ohne Titelbild">📝</div>

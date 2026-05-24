@@ -41,6 +41,6 @@ class Admin::EventsController < Admin::BaseController
 
   def event_params
     params.require(:event).permit(:title, :description, :event_type, :starts_at,
-                                  :location, :ticket_url, :published, :image)
+                                  :location, :ticket_url, :published, :image, :image_alt)
   end
 end

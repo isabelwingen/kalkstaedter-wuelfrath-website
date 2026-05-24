@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_05_24_091617) do
+ActiveRecord::Schema[8.1].define(version: 2026_05_24_120325) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
@@ -43,6 +43,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_24_091617) do
     t.datetime "created_at", null: false
     t.text "description"
     t.string "event_type"
+    t.string "image_alt"
     t.string "location"
     t.boolean "published", default: false, null: false
     t.datetime "starts_at"
@@ -62,6 +63,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_24_091617) do
   create_table "posts", force: :cascade do |t|
     t.text "content"
     t.datetime "created_at", null: false
+    t.string "image_alt"
     t.boolean "published", default: false, null: false
     t.date "published_at"
     t.string "title"
