@@ -1,0 +1,42 @@
+<% content_for :title, "Berichte" %>
+
+<div class="admin-index-actions">
+  <%= link_to "+ Neuer Bericht", new_admin_post_path, class: "btn btn-primary" %>
+</div>
+
+<% if @posts.any? %>
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Titel</th>
+        <th>Datum</th>
+        <th>Status</th>
+        <th>Aktionen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+        <tr>
+          <td><strong><%= post.title %></strong></td>
+          <td><%= post.published_at.present? ? l(post.published_at, format: :long) : "–" %></td>
+          <td>
+            <span class="badge <%= post.published? ? 'badge-published' : 'badge-draft' %>">
+              <%= post.published? ? "Veröffentlicht" : "Entwurf" %>
+            </span>
+          </td>
+          <td>
+            <div class="actions">
+              <%= link_to "Bearbeiten", edit_admin_post_path(post), class: "btn btn-outline btn-sm" %>
+              <%= button_to "Löschen", admin_post_path(post), method: :delete, class: "btn btn-danger",
+                    data: { turbo_confirm: "Bericht wirklich löschen?" } %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="empty-state">
+    <p>Noch keine Berichte. <%= link_to "Ersten Bericht anlegen →", new_admin_post_path %></p>
+  </div>
+<% end %>

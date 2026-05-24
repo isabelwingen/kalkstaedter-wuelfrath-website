@@ -1,0 +1,33 @@
+<% content_for :title, "Info-Kanäle" %>
+
+<div class="admin-index-actions">
+  <%= link_to "+ Neuer Kanal", new_admin_info_channel_path, class: "btn btn-primary" %>
+</div>
+
+<% if @info_channels.any? %>
+  <table class="admin-table">
+    <thead>
+      <tr><th>Name</th><th>Plattform</th><th>URL</th><th>Aktionen</th></tr>
+    </thead>
+    <tbody>
+      <% @info_channels.each do |channel| %>
+        <tr>
+          <td><strong><%= platform_icon(channel.platform) %> <%= channel.name %></strong></td>
+          <td><%= platform_label(channel.platform) %></td>
+          <td><a href="<%= channel.url %>" target="_blank" rel="noopener" class="table-link">← Link öffnen</a></td>
+          <td>
+            <div class="actions">
+              <%= link_to "Bearbeiten", edit_admin_info_channel_path(channel), class: "btn btn-outline btn-sm" %>
+              <%= button_to "Löschen", admin_info_channel_path(channel), method: :delete, class: "btn btn-danger",
+                    data: { turbo_confirm: "Kanal wirklich löschen?" } %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="empty-state">
+    <p>Noch keine Info-Kanäle. <%= link_to "Ersten Kanal anlegen →", new_admin_info_channel_path %></p>
+  </div>
+<% end %>

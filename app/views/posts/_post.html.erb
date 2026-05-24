@@ -1,0 +1,21 @@
+<article class="card">
+  <% if post.image.attached? %>
+    <div class="card-image">
+      <%= image_tag post.image, alt: post.title %>
+    </div>
+  <% else %>
+    <div class="card-image-placeholder">📝</div>
+  <% end %>
+  <div class="card-body">
+    <h3><%= link_to post.title, post_path(post) %></h3>
+    <div class="card-meta">
+      <% if post.published_at.present? %>
+        <span>📅 <%= l post.published_at, format: :long %></span>
+      <% end %>
+    </div>
+    <p><%= truncate(post.content, length: 150) %></p>
+  </div>
+  <div class="card-footer">
+    <%= link_to "Weiterlesen", post_path(post), class: "btn btn-outline btn-sm" %>
+  </div>
+</article>

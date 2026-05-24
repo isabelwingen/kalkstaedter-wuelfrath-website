@@ -1,0 +1,53 @@
+<% content_for :title, "Presse & Links" %>
+
+<div class="container">
+  <div class="page-header">
+    <h1>Presse & Links</h1>
+  </div>
+
+  <% if @info_channels.any? %>
+    <h2 class="mb-3">Unsere Kanäle</h2>
+    <ul class="link-list mb-3">
+      <% @info_channels.each do |channel| %>
+        <li>
+          <div class="channel-info">
+            <span class="platform-icon"><%= platform_icon(channel.platform) %></span>
+            <div>
+              <strong><%= channel.name %></strong>
+              <div class="link-meta"><%= platform_label(channel.platform) %></div>
+            </div>
+          </div>
+          <a href="<%= channel.url %>" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Öffnen →</a>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <% if @press_links.any? %>
+    <h2 class="mb-3">In der Presse</h2>
+    <ul class="link-list">
+      <% @press_links.each do |link| %>
+        <li>
+          <div>
+            <strong><%= link.title %></strong>
+            <div class="link-meta">
+              <% if link.publication.present? %>
+                <%= link.publication %>
+              <% end %>
+              <% if link.published_on.present? %>
+                – <%= l link.published_on, format: :long %>
+              <% end %>
+            </div>
+          </div>
+          <a href="<%= link.url %>" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Artikel lesen →</a>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <% if @press_links.none? && @info_channels.none? %>
+    <div class="empty-state">
+      <p>Hier werden bald Links zu Presseberichten und unseren Kanälen erscheinen.</p>
+    </div>
+  <% end %>
+</div>

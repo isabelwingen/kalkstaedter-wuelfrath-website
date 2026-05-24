@@ -1,0 +1,46 @@
+<% content_for :title, "Veranstaltungen" %>
+
+<div class="admin-index-actions">
+  <%= link_to "+ Neue Veranstaltung", new_admin_event_path, class: "btn btn-primary" %>
+</div>
+
+<% if @events.any? %>
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Titel</th>
+        <th>Typ</th>
+        <th>Datum</th>
+        <th>Ort</th>
+        <th>Status</th>
+        <th>Aktionen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @events.each do |event| %>
+        <tr>
+          <td><strong><%= event.title %></strong></td>
+          <td><%= event_type_badge(event.event_type) %></td>
+          <td><%= l event.starts_at, format: :short %></td>
+          <td><%= event.location %></td>
+          <td>
+            <span class="badge <%= event.published? ? 'badge-published' : 'badge-draft' %>">
+              <%= event.published? ? "Veröffentlicht" : "Entwurf" %>
+            </span>
+          </td>
+          <td>
+            <div class="actions">
+              <%= link_to "Bearbeiten", edit_admin_event_path(event), class: "btn btn-outline btn-sm" %>
+              <%= button_to "Löschen", admin_event_path(event), method: :delete, class: "btn btn-danger",
+                    data: { turbo_confirm: "Veranstaltung wirklich löschen?" } %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="empty-state">
+    <p>Noch keine Veranstaltungen. <%= link_to "Erste Veranstaltung anlegen →", new_admin_event_path %></p>
+  </div>
+<% end %>

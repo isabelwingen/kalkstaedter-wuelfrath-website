@@ -1,0 +1,45 @@
+<% if post.errors.any? %>
+  <div class="error-summary">
+    <h4><%= pluralize(post.errors.count, "Fehler") %> verhindert das Speichern:</h4>
+    <ul><% post.errors.full_messages.each do |msg| %><li><%= msg %></li><% end %></ul>
+  </div>
+<% end %>
+
+<%= form_with model: [:admin, post], class: "admin-form" do |f| %>
+  <div class="form-group">
+    <%= f.label :title, "Titel" %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :published_at, "Datum" %>
+    <%= f.date_field :published_at %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :content, "Inhalt" %>
+    <%= f.text_area :content %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image, "Titelbild (optional)" %>
+    <% if post.image.attached? %>
+      <div class="image-preview">
+        <%= image_tag post.image, alt: post.title %>
+      </div>
+    <% end %>
+    <%= f.file_field :image, accept: "image/*" %>
+  </div>
+
+  <div class="form-group">
+    <div class="form-check">
+      <%= f.check_box :published %>
+      <%= f.label :published, "Veröffentlicht (auf der Website sichtbar)" %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit "Speichern", class: "btn btn-primary" %>
+    <%= link_to "Abbrechen", admin_posts_path, class: "btn btn-outline" %>
+  </div>
+<% end %>

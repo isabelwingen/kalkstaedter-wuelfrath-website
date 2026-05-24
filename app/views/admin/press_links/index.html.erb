@@ -1,0 +1,33 @@
+<% content_for :title, "Zeitungsartikel" %>
+
+<div class="admin-index-actions">
+  <%= link_to "+ Neuer Artikel", new_admin_press_link_path, class: "btn btn-primary" %>
+</div>
+
+<% if @press_links.any? %>
+  <table class="admin-table">
+    <thead>
+      <tr><th>Titel</th><th>Zeitung</th><th>Datum</th><th>Aktionen</th></tr>
+    </thead>
+    <tbody>
+      <% @press_links.each do |link| %>
+        <tr>
+          <td><strong><%= link.title %></strong></td>
+          <td><%= link.publication %></td>
+          <td><%= link.published_on.present? ? l(link.published_on, format: :long) : "–" %></td>
+          <td>
+            <div class="actions">
+              <%= link_to "Bearbeiten", edit_admin_press_link_path(link), class: "btn btn-outline btn-sm" %>
+              <%= button_to "Löschen", admin_press_link_path(link), method: :delete, class: "btn btn-danger",
+                    data: { turbo_confirm: "Artikel wirklich löschen?" } %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="empty-state">
+    <p>Noch keine Zeitungsartikel. <%= link_to "Ersten Artikel anlegen →", new_admin_press_link_path %></p>
+  </div>
+<% end %>

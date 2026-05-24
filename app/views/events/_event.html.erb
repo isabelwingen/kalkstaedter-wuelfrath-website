@@ -1,0 +1,30 @@
+<article class="card">
+  <% if event.image.attached? %>
+    <div class="card-image">
+      <%= image_tag event.image, alt: event.title %>
+    </div>
+  <% else %>
+    <div class="card-image-placeholder">
+      <%= event.party? ? "🎉" : event.auftritt? ? "🎵" : "📅" %>
+    </div>
+  <% end %>
+  <div class="card-body">
+    <h3><%= link_to event.title, event_path(event) %></h3>
+    <div class="card-meta">
+      <span>📅 <%= l event.starts_at, format: :long %></span>
+      <% if event.location.present? %>
+        <span>📍 <%= event.location %></span>
+      <% end %>
+    </div>
+    <% if event.description.present? %>
+      <p><%= truncate(event.description, length: 120) %></p>
+    <% end %>
+  </div>
+  <div class="card-footer">
+    <%= event_type_badge(event.event_type) %>
+    <%= link_to "Details", event_path(event), class: "btn btn-outline btn-sm" %>
+    <% if event.ticket_url.present? %>
+      <a href="<%= event.ticket_url %>" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Tickets</a>
+    <% end %>
+  </div>
+</article>

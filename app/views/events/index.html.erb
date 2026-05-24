@@ -1,0 +1,27 @@
+<% content_for :title, "Veranstaltungen" %>
+
+<div class="container">
+  <div class="page-header">
+    <h1>Veranstaltungen</h1>
+  </div>
+
+  <% if @events.any? %>
+    <h2 class="mb-3">Kommende Veranstaltungen</h2>
+    <div class="card-grid mb-3">
+      <%= render @events %>
+    </div>
+  <% end %>
+
+  <% if @past_events.any? %>
+    <h2 class="mb-3 mt-3">Vergangene Veranstaltungen</h2>
+    <div class="card-grid">
+      <%= render @past_events %>
+    </div>
+  <% end %>
+
+  <% if @events.none? && @past_events.none? %>
+    <div class="empty-state">
+      <p>Aktuell sind keine Veranstaltungen geplant.<br>Schau bald wieder vorbei!</p>
+    </div>
+  <% end %>
+</div>

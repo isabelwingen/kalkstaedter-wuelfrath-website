@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: kalkstaedter-wuelfrath
+    runtime: ruby
+    buildCommand: |
+      bundle install
+      bundle exec rails assets:precompile
+      bundle exec rails db:migrate
+      bundle exec rails db:seed
+    startCommand: bundle exec puma -C config/puma.rb
+    healthCheckPath: /up
+    envVars:
+      - key: RAILS_ENV
+        value: production
+      - key: RAILS_LOG_TO_STDOUT
+        value: "true"
+      - key: SECRET_KEY_BASE
+        generateValue: true
+      - key: ADMIN_PASSWORD
+        sync: false          # wird manuell im Render-Dashboard gesetzt
+    disk:
+      name: kalkstaedter-data
+      mountPath: /rails/storage
+      sizeGB: 1

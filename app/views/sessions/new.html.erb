@@ -1,0 +1,30 @@
+<% content_for :title, "Anmelden" %>
+
+<div class="container">
+  <div class="admin-login-wrapper">
+    <h1>Admin-Anmeldung</h1>
+
+    <% if flash[:alert].present? %>
+      <p class="flash alert"><%= flash[:alert] %></p>
+    <% end %>
+    <% if flash[:notice].present? %>
+      <p class="flash notice"><%= flash[:notice] %></p>
+    <% end %>
+
+    <%= form_with url: session_path, class: "admin-form" do |f| %>
+      <div class="form-group">
+        <%= f.label :email_address, "E-Mail-Adresse" %>
+        <%= f.email_field :email_address, required: true, autofocus: true,
+              autocomplete: "username", value: params[:email_address] %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password, "Passwort" %>
+        <%= f.password_field :password, required: true,
+              autocomplete: "current-password", maxlength: 72 %>
+      </div>
+      <div class="form-actions">
+        <%= f.submit "Anmelden", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

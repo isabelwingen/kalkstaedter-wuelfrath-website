@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <title>Admin – <%= content_for?(:title) ? yield(:title) : "Kalkstädter Wülfrath" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="icon" href="/icon.png" type="image/png">
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "admin", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="admin-body">
+    <div class="admin-layout">
+      <aside class="admin-sidebar">
+        <div class="admin-sidebar-brand">
+          <strong>Kalkstädter Wülfrath</strong>
+          <span>Admin-Bereich</span>
+        </div>
+        <ul class="admin-nav">
+          <li class="nav-section">Übersicht</li>
+          <li><%= link_to "Dashboard", admin_root_path, class: admin_nav_class(admin_root_path) %></li>
+          <li class="nav-section">Inhalte</li>
+          <li><%= link_to "Veranstaltungen", admin_events_path, class: admin_nav_class(admin_events_path) %></li>
+          <li><%= link_to "Berichte", admin_posts_path, class: admin_nav_class(admin_posts_path) %></li>
+          <li><%= link_to "Zeitungsartikel", admin_press_links_path, class: admin_nav_class(admin_press_links_path) %></li>
+          <li><%= link_to "Info-Kanäle", admin_info_channels_path, class: admin_nav_class(admin_info_channels_path) %></li>
+        </ul>
+        <div class="admin-sidebar-footer">
+          <%= link_to "← Zur Website", root_path %><br>
+          <%= button_to "Abmelden", session_path, method: :delete, class: "btn btn-sm btn-outline mt-1" %>
+        </div>
+      </aside>
+
+      <div class="admin-main">
+        <div class="admin-topbar">
+          <h1><%= content_for?(:title) ? yield(:title) : "Admin" %></h1>
+          <span class="admin-topbar-user">Eingeloggt als <%= Current.user.email_address %></span>
+        </div>
+
+        <div class="admin-content">
+          <% if notice.present? %>
+            <p class="flash notice mb-2"><%= notice %></p>
+          <% end %>
+          <% if alert.present? %>
+            <p class="flash alert mb-2"><%= alert %></p>
+          <% end %>
+
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

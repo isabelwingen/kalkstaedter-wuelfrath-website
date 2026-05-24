@@ -1,0 +1,28 @@
+<% content_for :title, @post.title %>
+
+<div class="container">
+  <article>
+    <div class="article-header">
+      <h1><%= @post.title %></h1>
+      <div class="article-meta">
+        <% if @post.published_at.present? %>
+          <span>📅 <%= l @post.published_at, format: :long %></span>
+        <% end %>
+      </div>
+    </div>
+
+    <% if @post.image.attached? %>
+      <div class="article-image">
+        <%= image_tag @post.image, alt: @post.title %>
+      </div>
+    <% end %>
+
+    <div class="article-content">
+      <%= simple_format(@post.content) %>
+    </div>
+
+    <p class="mt-3">
+      <%= link_to "← Alle Berichte", posts_path %>
+    </p>
+  </article>
+</div>

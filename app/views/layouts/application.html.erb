@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <title><%= content_for?(:title) ? "#{yield(:title)} – Kalkstädter Wülfrath" : "Kalkstädter Wülfrath e.V." %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Querflötenorchester aus Wülfrath – Musik für alle!" %>">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="icon" href="/icon.png" type="image/png">
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <nav class="site-nav">
+      <div class="container">
+        <%= link_to root_path, class: "nav-brand" do %>
+          Kalkstädter Wülfrath
+          <span>Querflötenorchester e.V.</span>
+        <% end %>
+        <button class="nav-toggle" aria-label="Menü öffnen" onclick="this.nextElementSibling.classList.toggle('open')">☰</button>
+        <ul class="nav-links">
+          <li><%= link_to "Start",            root_path,        class: nav_link_class(root_path) %></li>
+          <li><%= link_to "Veranstaltungen",  events_path,      class: nav_link_class(events_path) %></li>
+          <li><%= link_to "Berichte",         posts_path,       class: nav_link_class(posts_path) %></li>
+          <li><%= link_to "Mitmachen",        mitmachen_path, class: nav_link_class(mitmachen_path) %></li>
+          <li><%= link_to "Über uns",         ueber_uns_path, class: nav_link_class(ueber_uns_path) %></li>
+          <li><%= link_to "Presse & Links",   press_links_path, class: nav_link_class(press_links_path) %></li>
+        </ul>
+      </div>
+    </nav>
+
+    <% if notice.present? %>
+      <div class="container"><p class="flash notice mt-2"><%= notice %></p></div>
+    <% end %>
+    <% if alert.present? %>
+      <div class="container"><p class="flash alert mt-2"><%= alert %></p></div>
+    <% end %>
+
+    <main>
+      <%= yield %>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h4>Kalkstädter Wülfrath e.V.</h4>
+            <address>
+              Flandersbacher Str. 19a<br>
+              42489 Wülfrath<br>
+              <a href="mailto:info@kalkstaedter-wuelfrath.de">info@kalkstaedter-wuelfrath.de</a>
+            </address>
+          </div>
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <ul>
+              <li><%= link_to "Veranstaltungen", events_path %></li>
+              <li><%= link_to "Berichte", posts_path %></li>
+              <li><%= link_to "Mitmachen", mitmachen_path %></li>
+              <li><%= link_to "Über uns", ueber_uns_path %></li>
+              <li><%= link_to "Presse & Links", press_links_path %></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Soziale Medien</h4>
+            <ul>
+              <li><a href="https://www.instagram.com/kalkstaedterwuelfrath/" target="_blank" rel="noopener">Instagram</a></li>
+              <li><a href="https://www.facebook.com/kalkstaedter/" target="_blank" rel="noopener">Facebook</a></li>
+              <li><a href="https://whatsapp.com/channel/0029Vb6bL0yGk1FufD0T5c2S" target="_blank" rel="noopener">WhatsApp-Kanal</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          &copy; <%= Date.current.year %> Kalkstädter Wülfrath e.V. –
+          <%= link_to "Impressum", impressum_path %> ·
+          <%= link_to "Datenschutz", datenschutz_path %>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

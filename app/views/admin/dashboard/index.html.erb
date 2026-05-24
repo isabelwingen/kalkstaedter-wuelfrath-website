@@ -1,0 +1,59 @@
+<% content_for :title, "Dashboard" %>
+
+<div class="stat-grid">
+  <div class="stat-card">
+    <div class="stat-number"><%= @events_count %></div>
+    <div class="stat-label">Veranstaltungen</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number"><%= @posts_count %></div>
+    <div class="stat-label">Berichte</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number"><%= @press_links_count %></div>
+    <div class="stat-label">Zeitungsartikel</div>
+  </div>
+</div>
+
+<div class="card-grid">
+  <div class="card">
+    <div class="card-body">
+      <h3>Veranstaltungen</h3>
+      <p class="text-muted">Auftritte, Parties und sonstige Veranstaltungen verwalten.</p>
+    </div>
+    <div class="card-footer">
+      <%= link_to "Verwalten", admin_events_path, class: "btn btn-outline btn-sm" %>
+      <%= link_to "+ Neu", new_admin_event_path, class: "btn btn-primary btn-sm" %>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h3>Berichte</h3>
+      <p class="text-muted">Eigene Berichte zu Veranstaltungen schreiben.</p>
+    </div>
+    <div class="card-footer">
+      <%= link_to "Verwalten", admin_posts_path, class: "btn btn-outline btn-sm" %>
+      <%= link_to "+ Neu", new_admin_post_path, class: "btn btn-primary btn-sm" %>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h3>Zeitungsartikel</h3>
+      <p class="text-muted">Links zu Presseberichten hinzufügen.</p>
+    </div>
+    <div class="card-footer">
+      <%= link_to "Verwalten", admin_press_links_path, class: "btn btn-outline btn-sm" %>
+      <%= link_to "+ Neu", new_admin_press_link_path, class: "btn btn-primary btn-sm" %>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h3>Info-Kanäle</h3>
+      <p class="text-muted">Social-Media-Links und andere Kanäle pflegen.</p>
+    </div>
+    <div class="card-footer">
+      <%= link_to "Verwalten", admin_info_channels_path, class: "btn btn-outline btn-sm" %>
+      <%= link_to "+ Neu", new_admin_info_channel_path, class: "btn btn-primary btn-sm" %>
+    </div>
+  </div>
+</div>

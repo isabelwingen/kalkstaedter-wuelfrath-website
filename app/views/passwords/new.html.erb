@@ -1,0 +1,22 @@
+<% content_for :title, "Passwort zurücksetzen" %>
+
+<div class="container">
+  <div class="admin-login-wrapper">
+    <h1>Passwort zurücksetzen</h1>
+
+    <% if flash[:alert].present? %>
+      <p class="flash alert"><%= flash[:alert] %></p>
+    <% end %>
+
+    <%= form_with url: passwords_path, class: "admin-form" do |f| %>
+      <div class="form-group">
+        <%= f.label :email_address, "E-Mail-Adresse" %>
+        <%= f.email_field :email_address, required: true, autofocus: true,
+              autocomplete: "username", value: params[:email_address] %>
+      </div>
+      <div class="form-actions">
+        <%= f.submit "Reset-Link anfordern", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

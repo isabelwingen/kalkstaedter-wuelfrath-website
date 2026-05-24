@@ -1,0 +1,101 @@
+de:
+  date:
+    formats:
+      default: "%d.%m.%Y"
+      short: "%d. %b %Y"
+      long: "%d. %B %Y"
+    month_names:
+      - ~
+      - Januar
+      - Februar
+      - März
+      - April
+      - Mai
+      - Juni
+      - Juli
+      - August
+      - September
+      - Oktober
+      - November
+      - Dezember
+    abbr_month_names:
+      - ~
+      - Jan
+      - Feb
+      - Mär
+      - Apr
+      - Mai
+      - Jun
+      - Jul
+      - Aug
+      - Sep
+      - Okt
+      - Nov
+      - Dez
+    day_names:
+      - Sonntag
+      - Montag
+      - Dienstag
+      - Mittwoch
+      - Donnerstag
+      - Freitag
+      - Samstag
+    abbr_day_names:
+      - So
+      - Mo
+      - Di
+      - Mi
+      - Do
+      - Fr
+      - Sa
+
+  time:
+    formats:
+      default: "%d.%m.%Y %H:%M Uhr"
+      short: "%d.%m. %H:%M Uhr"
+      long: "%d. %B %Y, %H:%M Uhr"
+
+  errors:
+    messages:
+      blank: "darf nicht leer sein"
+      taken: "ist bereits vergeben"
+      too_short: "ist zu kurz (mindestens %{count} Zeichen)"
+      too_long: "ist zu lang (maximal %{count} Zeichen)"
+      invalid: "ist ungültig"
+      not_a_number: "ist keine Zahl"
+
+  activerecord:
+    models:
+      event: Veranstaltung
+      post: Bericht
+      press_link: Zeitungsartikel
+      info_channel: Info-Kanal
+      page: Seite
+      user: Benutzer
+    attributes:
+      event:
+        title: Titel
+        description: Beschreibung
+        event_type: Typ
+        starts_at: Datum & Uhrzeit
+        location: Ort
+        ticket_url: Ticket-Link
+        published: Veröffentlicht
+      post:
+        title: Titel
+        content: Inhalt
+        published_at: Datum
+        published: Veröffentlicht
+      press_link:
+        title: Titel
+        url: Link
+        publication: Zeitung / Quelle
+        published_on: Erscheinungsdatum
+      info_channel:
+        name: Name
+        url: URL
+        platform: Plattform
+      page:
+        slug: URL-Slug
+        title: Titel
+        content: Inhalt

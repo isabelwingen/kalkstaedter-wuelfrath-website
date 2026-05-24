@@ -1,0 +1,17 @@
+<% content_for :title, "Berichte" %>
+
+<div class="container">
+  <div class="page-header">
+    <h1>Berichte</h1>
+  </div>
+
+  <% if @posts.any? %>
+    <div class="card-grid">
+      <%= render @posts %>
+    </div>
+  <% else %>
+    <div class="empty-state">
+      <p>Noch keine Berichte vorhanden. Schau bald wieder vorbei!</p>
+    </div>
+  <% end %>
+</div>
