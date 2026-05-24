@@ -54,7 +54,7 @@ events = [
     ticket_url: nil,
     published:  true,
     description: "Ein Auftritt in kleinem, gemütlichem Rahmen: Die Kalkstädter spielen in der Gastronomie Neandertal No. 1. Eintritt frei – einfach vorbeikommen!",
-    image_url:  "#{BASE}/photo-1415201364774-f6f0bb35f28f?w=900&q=80&fm=jpg",
+    image_url:  "#{BASE}/photo-1558618666-fcd25c85cd64?w=900&q=80&fm=jpg",
     image_name: "neandertal-auftritt.jpg"
   },
   {

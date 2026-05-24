@@ -1,10 +1,10 @@
 <article class="card">
   <% if event.image.attached? %>
-    <div class="card-image">
+    <div class="card-image card-image--poster">
       <%= image_tag event.image, alt: event.title %>
     </div>
   <% else %>
-    <div class="card-image-placeholder">
+    <div class="card-image-placeholder card-image-placeholder--poster">
       <%= event.party? ? "🎉" : event.auftritt? ? "🎵" : "📅" %>
     </div>
   <% end %>
