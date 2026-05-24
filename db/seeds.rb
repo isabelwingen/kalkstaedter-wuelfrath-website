@@ -105,7 +105,7 @@ events = [
     description: "Die närrische Jahreszeit feiern wir gemeinsam im Vereinshaus! Kostüme erwünscht, gute Laune garantiert.",
     image_path: "#{SEEDS_IMAGES}/karnevalsparty.png",
     image_name: "karnevalsparty.png"
-  },
+  }
 ]
 
 events.each do |attrs|
@@ -154,7 +154,7 @@ posts = [
     TEXT
     image_url:  "#{BASE}/photo-1467810563316-b5476525c0f9?w=900&q=80&fm=jpg",
     image_name: "maikonzert-rueckblick.jpg"
-  },
+  }
 ]
 
 posts.each do |attrs|
