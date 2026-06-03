@@ -30,5 +30,6 @@ Rails.application.routes.draw do
     resources :posts
     resources :press_links
     resources :info_channels
+    resource :site_settings, only: [ :edit, :update ]
   end
 end

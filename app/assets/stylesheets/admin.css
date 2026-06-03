@@ -286,3 +286,33 @@
 
 /* Table external link */
 .table-link { font-size: 0.85rem; }
+
+/* Site-Settings: Radio-Auswahl */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+}
+.radio-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border: 2px solid var(--admin-border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.radio-option input[type="radio"] { margin-top: 0.2rem; flex-shrink: 0; }
+.radio-option p { margin: 0.2rem 0 0; font-size: 0.875rem; color: var(--color-text-muted); }
+.radio-option--active { border-color: var(--admin-primary); background: #f0fdf8; }
+.radio-indicator {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  margin-top: 0.25rem;
+}
+.radio-indicator--green { background: #4db89e; }
+.radio-indicator--yellow { background: #f59e0b; }

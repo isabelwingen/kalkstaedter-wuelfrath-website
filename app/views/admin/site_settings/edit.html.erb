@@ -1,0 +1,30 @@
+<% content_for :title, "Einstellungen" %>
+
+<div class="admin-form-card">
+  <h2>Musikschule – Anmeldestatus</h2>
+  <p class="text-muted">Steuert den farbigen Hinweiskasten auf der Musikschul-Seite.</p>
+
+  <%= form_with url: admin_site_settings_path, method: :patch do |f| %>
+    <div class="radio-group">
+      <label class="radio-option <%= 'radio-option--active' if @musikschule_status == 'freie_plaetze' %>">
+        <%= radio_button_tag :musikschule_anmeldung, "freie_plaetze", @musikschule_status == "freie_plaetze" %>
+        <span class="radio-indicator radio-indicator--green"></span>
+        <div>
+          <strong>Freie Plätze</strong>
+          <p>Grüner Kasten: „Aktuell haben wir noch freie Unterrichtsplätze!"</p>
+        </div>
+      </label>
+
+      <label class="radio-option <%= 'radio-option--active' if @musikschule_status == 'warteliste' %>">
+        <%= radio_button_tag :musikschule_anmeldung, "warteliste", @musikschule_status == "warteliste" %>
+        <span class="radio-indicator radio-indicator--yellow"></span>
+        <div>
+          <strong>Warteliste</strong>
+          <p>Gelber Kasten: „Aktuell führen wir eine Warteliste."</p>
+        </div>
+      </label>
+    </div>
+
+    <%= f.submit "Speichern", class: "btn btn-primary mt-2" %>
+  <% end %>
+</div>

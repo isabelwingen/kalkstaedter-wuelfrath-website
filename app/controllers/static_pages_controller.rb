@@ -3,7 +3,9 @@ class StaticPagesController < ApplicationController
 
   def ueber_uns; end
   def mitmachen; end
-  def musikschule; end
+  def musikschule
+    @musikschule_status = SiteSetting.get("musikschule_anmeldung") || "freie_plaetze"
+  end
   def chronik; end
   def impressum; end
   def datenschutz; end

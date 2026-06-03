@@ -653,6 +653,13 @@ main { flex: 1; padding: 2rem 0 4rem; }
   color: var(--color-link);
 }
 
+.static-callout--warning {
+  background: #fffbeb;
+  border-color: #f59e0b;
+  border-left-color: #d97706;
+  color: #92400e;
+}
+
 /* Chronik-Timeline */
 .chronik-liste {
   list-style: none;

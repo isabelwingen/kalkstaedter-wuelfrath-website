@@ -12,10 +12,17 @@
       keine nötig.
     </p>
 
-    <p class="static-callout">
-      <strong>Aktuell haben wir noch freie Unterrichtsplätze!</strong>
-      Schreib uns einfach – wir freuen uns auf deine Nachricht.
-    </p>
+    <% if @musikschule_status == "warteliste" %>
+      <p class="static-callout static-callout--warning">
+        <strong>Aktuell sind alle Plätze belegt – aber melde dich gerne trotzdem!</strong>
+        Wir nehmen dich auf unsere Warteliste und melden uns, sobald ein Platz frei wird.
+      </p>
+    <% else %>
+      <p class="static-callout">
+        <strong>Aktuell haben wir noch freie Unterrichtsplätze!</strong>
+        Schreib uns einfach – wir freuen uns auf deine Nachricht.
+      </p>
+    <% end %>
 
     <h2>Unterrichtete Instrumente</h2>
     <p>Wir unterrichten die Kerninstrumente unseres Orchesters:</p>
@@ -39,7 +46,7 @@
     <h2>Der Weg ins Orchester</h2>
     <p>
       Unser Ziel ist es, Schülerinnen und Schüler behutsam an das gemeinsame Musizieren
-      heranzuführen. Der Weg dahin hat drei natürliche Stufen:
+      heranzuführen. Der Weg dahin hat zwei natürliche Stufen:
     </p>
     <ol>
       <li>

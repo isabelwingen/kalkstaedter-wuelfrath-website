@@ -196,4 +196,7 @@ press_links.each do |attrs|
   end
 end
 
+# Site-Einstellungen
+SiteSetting.find_or_create_by(key: "musikschule_anmeldung") { |s| s.value = "freie_plaetze" }
+
 puts "Seeds fertig."
