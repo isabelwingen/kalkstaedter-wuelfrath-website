@@ -21,8 +21,7 @@ Rails.application.configure do
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.asset_host = "http://assets.example.com"
 
-  # Render Persistent Disk für Active Storage
-  config.active_storage.service = :render
+  config.active_storage.service = :local
 
   # SSL wird über Coolify/Traefik terminiert – nach Domain-Einrichtung wieder aktivieren
   # config.assume_ssl = true

@@ -26,7 +26,7 @@ Fehler müssen behoben werden bevor committed wird.
 - **Datenbank:** SQLite (3 Datenbanken: production, cache, queue)
 - **Hintergrundverarbeitung:** Solid Queue, läuft im Puma-Prozess (`SOLID_QUEUE_IN_PUMA=true`)
 - **Caching:** Solid Cache
-- **Datei-Uploads:** Active Storage, lokal auf Disk (`/rails/storage` in production)
+- **Datei-Uploads:** Active Storage, Disk-Service (`:local`), Pfad `/rails/storage` via Coolify Volume Mount
 - **E-Mail:** Resend (production), letter_opener (development)
 - **Auth:** Rails 8 Authentication (sessions-basiert, kein Devise)
 
@@ -105,7 +105,7 @@ Container-Name: `docker ps | grep -v coolify`
 
 ## Active Storage
 
-Storage-Service in production heißt `:render` (historisch, zeigt auf `/rails/storage`).  
+Storage-Service in production: `:local` → `/rails/storage` (via Coolify Volume Mount).  
 Konfiguration in `config/storage.yml`.
 
 ## Frontend-Prinzipien
