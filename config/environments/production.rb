@@ -32,7 +32,7 @@ Rails.application.configure do
 
   # Mailer via Resend
   config.action_mailer.delivery_method = :resend
-  config.action_mailer.default_url_options = { host: ENV.fetch("APP_HOST", "localhost"), protocol: "https" }
+  config.action_mailer.default_url_options = { host: ENV.fetch("APP_HOST", "localhost"), protocol: ENV.fetch("APP_PROTOCOL", "https") }
 
   # Log to STDOUT with the current request id as a default log tag.
   config.log_tags = [ :request_id ]
