@@ -58,4 +58,6 @@ group :development do
   gem "web-console"
   # Open sent emails in browser instead of actually sending them
   gem "letter_opener"
+  # Load environment variables from .env.local
+  gem "dotenv-rails"
 end

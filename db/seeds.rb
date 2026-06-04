@@ -198,5 +198,8 @@ end
 
 # Site-Einstellungen
 SiteSetting.find_or_create_by(key: "musikschule_anmeldung") { |s| s.value = "freie_plaetze" }
+SiteSetting.find_or_create_by(key: "ki_systemprompt") do |s|
+  s.value = "Du bist ein Texter für den Verein Querflötenorchester Kalkstädter Wülfrath e.V. Verbessere den folgenden Text sprachlich: korrekte Rechtschreibung, flüssiger Stil, freundlicher Ton. Duze die Leser. Gib nur den verbesserten Text zurück, ohne Erklärungen."
+end
 
 puts "Seeds fertig."

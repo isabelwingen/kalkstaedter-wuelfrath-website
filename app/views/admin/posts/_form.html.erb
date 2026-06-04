@@ -16,9 +16,12 @@
     <%= f.date_field :published_at %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" data-controller="ai-improve">
     <%= f.label :content, "Inhalt" %>
-    <%= f.text_area :content %>
+    <%= f.text_area :content, "data-ai-improve-target": "source" %>
+    <button type="button" class="btn btn-outline btn-sm"
+            data-ai-improve-target="button"
+            data-action="ai-improve#improve">Mit KI verbessern</button>
   </div>
 
   <div class="form-group">

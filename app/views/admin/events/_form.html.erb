@@ -36,9 +36,12 @@
     <p class="form-hint">Link zum Ticketkauf, falls Eintritt zu zahlen ist.</p>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" data-controller="ai-improve">
     <%= f.label :description, "Beschreibung" %>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, "data-ai-improve-target": "source" %>
+    <button type="button" class="btn btn-outline btn-sm"
+            data-ai-improve-target="button"
+            data-action="ai-improve#improve">Mit KI verbessern</button>
   </div>
 
   <div class="form-group">

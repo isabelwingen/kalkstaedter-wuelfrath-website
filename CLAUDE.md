@@ -73,6 +73,7 @@ Push auf `main` triggert automatisch Redeploy in Coolify.
 | `MAILER_FROM` | Absenderadresse (default: `onboarding@resend.dev`) |
 | `APP_HOST` | Domain für Mail-Links |
 | `SOLID_QUEUE_IN_PUMA` | `true` — Solid Queue im Puma-Prozess |
+| `GEMINI_API_KEY` | API Key von Google AI Studio — **Runtime only** |
 
 ### Persistent Storage
 
