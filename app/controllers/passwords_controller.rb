@@ -5,6 +5,13 @@ class PasswordsController < ApplicationController
   def new
   end
 
+  def create
+    if (user = User.find_by(email_address: params[:email_address]))
+      PasswordMailer.reset(user).deliver_later
+    end
+    redirect_to new_session_path, notice: "Falls ein Account mit dieser E-Mail existiert, wurde ein Reset-Link gesendet."
+  end
+
   def edit
   end
 

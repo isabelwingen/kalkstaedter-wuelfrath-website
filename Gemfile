@@ -51,7 +51,11 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 end
 
+gem "resend"
+
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  # Open sent emails in browser instead of actually sending them
+  gem "letter_opener"
 end

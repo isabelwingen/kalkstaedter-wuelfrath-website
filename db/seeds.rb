@@ -24,9 +24,9 @@ SEEDS_IMAGES = File.expand_path("seeds/images", __dir__)
 BASE = "https://images.unsplash.com"
 
 # ── Admin-User ────────────────────────────────────────────────────────────────
-User.find_or_create_by!(email_address: "admin@kalkstaedter-wuelfrath.de") do |u|
-  u.password = u.password_confirmation = ENV.fetch("ADMIN_PASSWORD", "changeme123!")
-  puts "Admin-User erstellt: #{u.email_address}"
+User.find_or_create_by!(email_address: "isabel.wingen@gmail.com") do |u|
+  u.password = u.password_confirmation = SecureRandom.hex(16)
+  puts "Admin-User erstellt: #{u.email_address} (Passwort per Reset-Link setzen)"
 end
 
 # ── Info-Kanäle ───────────────────────────────────────────────────────────────
