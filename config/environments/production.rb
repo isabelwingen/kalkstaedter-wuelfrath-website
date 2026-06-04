@@ -23,9 +23,9 @@ Rails.application.configure do
 
   config.active_storage.service = :local
 
-  # SSL wird über Coolify/Traefik terminiert – nach Domain-Einrichtung wieder aktivieren
-  # config.assume_ssl = true
-  # config.force_ssl  = true
+  # SSL wird über Coolify/Traefik terminiert
+  config.assume_ssl = true
+  config.force_ssl  = true
 
   # Skip http-to-https redirect for the default health check endpoint.
   # config.ssl_options = { redirect: { exclude: ->(request) { request.path == "/up" } } }
