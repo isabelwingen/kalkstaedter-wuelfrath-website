@@ -1,0 +1,29 @@
+<% content_for :title, "Statische Seiten" %>
+
+<table class="admin-table">
+  <thead>
+    <tr>
+      <th>Seite</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pages.each do |page| %>
+      <tr>
+        <td data-label="Seite"><strong><%= page[:title] %></strong></td>
+        <td data-label="Status">
+          <% if page[:record].present? %>
+            <span class="badge badge-published">Bearbeitet</span>
+          <% else %>
+            <span class="badge badge-draft">Original</span>
+          <% end %>
+        </td>
+        <td class="actions">
+          <%= link_to "Bearbeiten", edit_admin_static_page_path(page[:slug]), class: "btn btn-sm btn-outline" %>
+          <%= link_to "Ansehen →", send(:"#{page[:slug]}_path"), class: "btn btn-sm btn-outline", target: "_blank", rel: "noopener noreferrer" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

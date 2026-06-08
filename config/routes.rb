@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     resources :posts
     resources :press_links
     resources :info_channels
+    resources :static_pages, only: %i[index edit update]
     resource :site_settings, only: [ :edit, :update ]
     post "text_improvements", to: "text_improvements#create"
   end

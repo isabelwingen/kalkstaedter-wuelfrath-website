@@ -1,0 +1,59 @@
+<% content_for :title, @page_title %>
+
+<% if @page.errors.any? %>
+  <div class="error-summary">
+    <h4><%= pluralize(@page.errors.count, "Fehler") %> verhindert das Speichern:</h4>
+    <ul><% @page.errors.full_messages.each do |msg| %><li><%= msg %></li><% end %></ul>
+  </div>
+<% end %>
+
+<%= form_with url: admin_static_page_path(@slug), method: :patch, class: "admin-form admin-form--wide" do |f| %>
+  <div class="form-group" data-controller="tiptap">
+    <label>Seiteninhalt</label>
+
+    <div class="tiptap-wrapper">
+      <div class="tiptap-toolbar" role="toolbar" aria-label="Textformatierung">
+        <button type="button" class="tiptap-btn" data-action="click->tiptap#setH1" title="Überschrift 1">H1</button>
+        <button type="button" class="tiptap-btn" data-action="click->tiptap#setH2" title="Überschrift 2">H2</button>
+        <button type="button" class="tiptap-btn" data-action="click->tiptap#setH3" title="Überschrift 3">H3</button>
+        <span class="tiptap-sep" aria-hidden="true"></span>
+        <button type="button" class="tiptap-btn" data-action="click->tiptap#toggleBold" title="Fett (Strg+B)"><b>B</b></button>
+        <button type="button" class="tiptap-btn" data-action="click->tiptap#toggleItalic" title="Kursiv (Strg+I)"><i>I</i></button>
+        <span class="tiptap-sep" aria-hidden="true"></span>
+        <button type="button" class="tiptap-btn" data-action="click->tiptap#toggleBulletList" title="Aufzählungsliste">• Liste</button>
+        <button type="button" class="tiptap-btn" data-action="click->tiptap#toggleOrderedList" title="Nummerierte Liste">1. Liste</button>
+        <span class="tiptap-sep" aria-hidden="true"></span>
+        <button type="button" class="tiptap-btn" data-action="click->tiptap#setLink" title="Link setzen">Link</button>
+        <button type="button" class="tiptap-btn" data-action="click->tiptap#unsetLink" title="Link entfernen">Link ✕</button>
+        <span class="tiptap-sep" aria-hidden="true"></span>
+        <button type="button" class="tiptap-btn" data-action="click->tiptap#insertTable" title="Tabelle einfügen">+ Tabelle</button>
+        <button type="button" class="tiptap-btn" data-action="click->tiptap#addRowAfter" title="Zeile darunter einfügen">+ Zeile</button>
+        <button type="button" class="tiptap-btn" data-action="click->tiptap#addColumnAfter" title="Spalte rechts einfügen">+ Spalte</button>
+        <button type="button" class="tiptap-btn" data-action="click->tiptap#deleteRow" title="Zeile löschen">Zeile ✕</button>
+        <button type="button" class="tiptap-btn" data-action="click->tiptap#deleteColumn" title="Spalte löschen">Spalte ✕</button>
+        <button type="button" class="tiptap-btn" data-action="click->tiptap#deleteTable" title="Tabelle löschen">Tabelle ✕</button>
+      </div>
+
+      <div class="tiptap-editor" data-tiptap-target="editor"></div>
+    </div>
+
+    <textarea name="static_page_content[content]"
+              data-tiptap-target="input"
+              hidden
+              aria-hidden="true"><%= @page.content %></textarea>
+  </div>
+
+  <% if @slug == "musikschule" %>
+    <p class="form-hint">
+      Der farbige Anmeldestatus-Kasten (freie Plätze / Warteliste) wird separat unter
+      <%= link_to "Einstellungen", edit_admin_site_settings_path %> verwaltet und erscheint
+      am Anfang der Seite.
+    </p>
+  <% end %>
+
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">Speichern</button>
+    <%= link_to "Abbrechen", admin_static_pages_path, class: "btn btn-outline" %>
+    <%= link_to "Seite ansehen →", send(:"#{@slug}_path"), class: "btn btn-outline", target: "_blank", rel: "noopener" %>
+  </div>
+<% end %>

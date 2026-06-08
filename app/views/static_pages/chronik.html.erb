@@ -2,62 +2,66 @@
 
 <div class="container">
   <div class="static-page">
+    <% if @page_content.present? %>
+      <%= sanitize_page_content @page_content.content %>
+    <% else %>
 
-    <h1>Chronik</h1>
+      <h1>Chronik</h1>
 
-    <p>
-      Das Querflötenorchester Kalkstädter Wülfrath wurde <strong>1954</strong> ursprünglich als
-      Spielmannszug des Schützenvereins gegründet.
-    </p>
+      <p>
+        Das Querflötenorchester Kalkstädter Wülfrath wurde <strong>1954</strong> ursprünglich als
+        Spielmannszug des Schützenvereins gegründet.
+      </p>
 
-    <ol class="chronik-liste">
-      <li>
-        <span class="chronik-jahr">1954</span>
-        <div>
-          <strong>Gründung</strong><br>
-          Gründung als Spielmannszug des Schützenvereins Wülfrath.
-        </div>
-      </li>
-      <li>
-        <span class="chronik-jahr">1990er</span>
-        <div>
-          <strong>Modernisierung</strong><br>
-          Einführung der Notenlehre und Umstellung des Repertoires. Das Interesse engagierter
-          Musiker – vor allem im Jugendbereich – wird geweckt.
-        </div>
-      </li>
-      <li>
-        <span class="chronik-jahr">2005</span>
-        <div>
-          <strong>Konzertflöten &amp; Musikschule</strong><br>
-          Umstellung des Instrumentariums von Spielmannsflöten auf Konzertflöten. Verpflichtung
-          von Bernd Wysk als Musiklehrer und Dirigenten. Erweiterung des Flötensatzes auf
-          Alt-, Kontra-Alt-, Bass- und Kontra-Bassflöten sowie Stabspiele und Percussion.
-          Gründung der vereinseigenen Musikschule.
-        </div>
-      </li>
-      <li>
-        <span class="chronik-jahr">2008</span>
-        <div>
-          <strong>Neue musikalische Leitung</strong><br>
-          Tanja Bohn (geb. Rödel) übernimmt die musikalische Leitung.
-        </div>
-      </li>
-      <li>
-        <span class="chronik-jahr">2010</span>
-        <div>
-          <strong>Bernd Wysk</strong><br>
-          Bernd Wysk gibt seine Tätigkeit als Dirigent ab.
-        </div>
-      </li>
-      <li>
-        <span class="chronik-jahr">2019</span>
-        <div>
-          <strong>Laura Brunswig</strong><br>
-          Im Mai 2019 übernimmt Laura Brunswig die musikalische Leitung – bis heute.
-        </div>
-      </li>
-    </ol>
+      <ol class="chronik-liste">
+        <li>
+          <span class="chronik-jahr">1954</span>
+          <div>
+            <strong>Gründung</strong><br>
+            Gründung als Spielmannszug des Schützenvereins Wülfrath.
+          </div>
+        </li>
+        <li>
+          <span class="chronik-jahr">1990er</span>
+          <div>
+            <strong>Modernisierung</strong><br>
+            Einführung der Notenlehre und Umstellung des Repertoires. Das Interesse engagierter
+            Musiker – vor allem im Jugendbereich – wird geweckt.
+          </div>
+        </li>
+        <li>
+          <span class="chronik-jahr">2005</span>
+          <div>
+            <strong>Konzertflöten &amp; Musikschule</strong><br>
+            Umstellung des Instrumentariums von Spielmannsflöten auf Konzertflöten. Verpflichtung
+            von Bernd Wysk als Musiklehrer und Dirigenten. Erweiterung des Flötensatzes auf
+            Alt-, Kontra-Alt-, Bass- und Kontra-Bassflöten sowie Stabspiele und Percussion.
+            Gründung der vereinseigenen Musikschule.
+          </div>
+        </li>
+        <li>
+          <span class="chronik-jahr">2008</span>
+          <div>
+            <strong>Neue musikalische Leitung</strong><br>
+            Tanja Bohn (geb. Rödel) übernimmt die musikalische Leitung.
+          </div>
+        </li>
+        <li>
+          <span class="chronik-jahr">2010</span>
+          <div>
+            <strong>Bernd Wysk</strong><br>
+            Bernd Wysk gibt seine Tätigkeit als Dirigent ab.
+          </div>
+        </li>
+        <li>
+          <span class="chronik-jahr">2019</span>
+          <div>
+            <strong>Laura Brunswig</strong><br>
+            Im Mai 2019 übernimmt Laura Brunswig die musikalische Leitung – bis heute.
+          </div>
+        </li>
+      </ol>
 
+    <% end %>
   </div>
 </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_06_03_080422) do
+ActiveRecord::Schema[8.1].define(version: 2026_06_05_120000) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
@@ -94,6 +94,14 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_03_080422) do
     t.datetime "updated_at", null: false
     t.string "value", null: false
     t.index ["key"], name: "index_site_settings_on_key", unique: true
+  end
+
+  create_table "static_page_contents", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.string "slug", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_static_page_contents_on_slug", unique: true
   end
 
   create_table "users", force: :cascade do |t|

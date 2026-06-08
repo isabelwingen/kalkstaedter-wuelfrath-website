@@ -3,15 +3,6 @@
 <div class="container">
   <div class="static-page">
 
-    <h1>Musikschule</h1>
-
-    <p>
-      Unsere vereinseigene Musikschule wurde <strong>2005 gegründet</strong> und richtet sich an
-      musikbegeisterte Menschen jeden Alters – von Kindern ab dem Grundschulalter bis hin zu
-      Erwachsenen, die sich ihren Traum vom Musizieren erfüllen möchten. Vorkenntnisse sind
-      keine nötig.
-    </p>
-
     <% if @musikschule_status == "warteliste" %>
       <p class="static-callout static-callout--warning">
         <strong>Aktuell sind alle Plätze belegt – aber melde dich gerne trotzdem!</strong>
@@ -24,73 +15,87 @@
       </p>
     <% end %>
 
-    <h2>Unterrichtete Instrumente</h2>
-    <p>Wir unterrichten die Kerninstrumente unseres Orchesters:</p>
-    <ul>
-      <li>
-        <strong>Querflöte</strong> – in allen Stimmlagen: Sopran (klassische Böhmflöte),
-        Alt, Bass und Kontrabass. Wer mit der Sopranflöte beginnt, hat später die Möglichkeit,
-        auf weitere Stimmlagen zu wechseln.
-      </li>
-      <li>
-        <strong>Schlagwerk &amp; Mallets</strong> – Drum Set, Glockenspiel, Xylophon und
-        Marimbaphon. Der Unterricht umfasst je nach Interesse sowohl rhythmische Grundlagen
-        als auch melodisches Stabspielen.
-      </li>
-    </ul>
-    <p>
-      Ein eigenes Instrument ist nicht zwingend nötig – wir verleihen Instrumente gegen eine
-      kleine monatliche Leihgebühr.
-    </p>
+    <% if @page_content.present? %>
+      <%= sanitize_page_content @page_content.content %>
+    <% else %>
 
-    <h2>Der Weg ins Orchester</h2>
-    <p>
-      Unser Ziel ist es, Schülerinnen und Schüler behutsam an das gemeinsame Musizieren
-      heranzuführen. Der Weg dahin hat zwei natürliche Stufen:
-    </p>
-    <ol>
-      <li>
-        <strong>Einzelunterricht</strong> – Grundlagen, Haltung, Technik und erste Melodien.
-        Im eigenen Tempo, individuell auf dich abgestimmt.
-      </li>
-      <li>
-        <strong>Orchester</strong> – wer bereit ist, wächst ganz natürlich in das Orchester
-        hinein. Es gibt keine feste Zeitvorgabe – das entscheiden wir gemeinsam.
-      </li>
-    </ol>
+      <h1>Musikschule</h1>
 
-    <h2>Unterricht</h2>
-    <p>
-      Der Unterricht findet <strong>einmal wöchentlich donnerstags</strong> statt –
-      als <strong>Einzelunterricht à 30 Minuten</strong> im Städtischen Gymnasium Wülfrath.
-    </p>
+      <p>
+        Unsere vereinseigene Musikschule wurde <strong>2005 gegründet</strong> und richtet sich an
+        musikbegeisterte Menschen jeden Alters – von Kindern ab dem Grundschulalter bis hin zu
+        Erwachsenen, die sich ihren Traum vom Musizieren erfüllen möchten. Vorkenntnisse sind
+        keine nötig.
+      </p>
 
-    <h2>Vereinsleben</h2>
-    <p>
-      Neben dem Unterricht pflegen wir das gemeinsame Miteinander: Ausflüge,
-      Probenwochenenden, Kino- oder Pizzaabende und die ersten eigenen Auftritte machen
-      die Musikschule zu mehr als nur Unterricht.
-    </p>
+      <h2>Unterrichtete Instrumente</h2>
+      <p>Wir unterrichten die Kerninstrumente unseres Orchesters:</p>
+      <ul>
+        <li>
+          <strong>Querflöte</strong> – in allen Stimmlagen: Sopran (klassische Böhmflöte),
+          Alt, Bass und Kontrabass. Wer mit der Sopranflöte beginnt, hat später die Möglichkeit,
+          auf weitere Stimmlagen zu wechseln.
+        </li>
+        <li>
+          <strong>Schlagwerk &amp; Mallets</strong> – Drum Set, Glockenspiel, Xylophon und
+          Marimbaphon. Der Unterricht umfasst je nach Interesse sowohl rhythmische Grundlagen
+          als auch melodisches Stabspielen.
+        </li>
+      </ul>
+      <p>
+        Ein eigenes Instrument ist nicht zwingend nötig – wir verleihen Instrumente gegen eine
+        kleine monatliche Leihgebühr.
+      </p>
 
-    <h2>Kosten</h2>
-    <table class="static-table">
-      <thead>
-        <tr><th scope="col">Position</th><th scope="col">Betrag</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Vereinsbeitrag Jugendliche</td><td>24,– € / Jahr</td></tr>
-        <tr><td>Vereinsbeitrag Erwachsene</td><td>60,– € / Jahr</td></tr>
-        <tr><td>Musikschulunterricht</td><td>30,– € / Monat</td></tr>
-        <tr><td>Instrumentenleihgebühr (falls nötig)</td><td>20,– € / Monat</td></tr>
-      </tbody>
-    </table>
+      <h2>Der Weg ins Orchester</h2>
+      <p>
+        Unser Ziel ist es, Schülerinnen und Schüler behutsam an das gemeinsame Musizieren
+        heranzuführen. Der Weg dahin hat zwei natürliche Stufen:
+      </p>
+      <ol>
+        <li>
+          <strong>Einzelunterricht</strong> – Grundlagen, Haltung, Technik und erste Melodien.
+          Im eigenen Tempo, individuell auf dich abgestimmt.
+        </li>
+        <li>
+          <strong>Orchester</strong> – wer bereit ist, wächst ganz natürlich in das Orchester
+          hinein. Es gibt keine feste Zeitvorgabe – das entscheiden wir gemeinsam.
+        </li>
+      </ol>
 
-    <h2>Jetzt anmelden</h2>
-    <p>
-      Interesse geweckt? Wir freuen uns auf deine Nachricht – komm einfach auf uns zu,
-      ganz unverbindlich:
-    </p>
-    <p><a href="mailto:info@kalkstaedter-wuelfrath.de">info@kalkstaedter-wuelfrath.de</a></p>
+      <h2>Unterricht</h2>
+      <p>
+        Der Unterricht findet <strong>einmal wöchentlich donnerstags</strong> statt –
+        als <strong>Einzelunterricht à 30 Minuten</strong> im Städtischen Gymnasium Wülfrath.
+      </p>
 
+      <h2>Vereinsleben</h2>
+      <p>
+        Neben dem Unterricht pflegen wir das gemeinsame Miteinander: Ausflüge,
+        Probenwochenenden, Kino- oder Pizzaabende und die ersten eigenen Auftritte machen
+        die Musikschule zu mehr als nur Unterricht.
+      </p>
+
+      <h2>Kosten</h2>
+      <table class="static-table">
+        <thead>
+          <tr><th scope="col">Position</th><th scope="col">Betrag</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Vereinsbeitrag Jugendliche</td><td>24,– € / Jahr</td></tr>
+          <tr><td>Vereinsbeitrag Erwachsene</td><td>60,– € / Jahr</td></tr>
+          <tr><td>Musikschulunterricht</td><td>30,– € / Monat</td></tr>
+          <tr><td>Instrumentenleihgebühr (falls nötig)</td><td>20,– € / Monat</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Jetzt anmelden</h2>
+      <p>
+        Interesse geweckt? Wir freuen uns auf deine Nachricht – komm einfach auf uns zu,
+        ganz unverbindlich:
+      </p>
+      <p><a href="mailto:info@kalkstaedter-wuelfrath.de">info@kalkstaedter-wuelfrath.de</a></p>
+
+    <% end %>
   </div>
 </div>

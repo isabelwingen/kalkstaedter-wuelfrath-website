@@ -643,6 +643,36 @@ main { flex: 1; padding: 2rem 0 4rem; }
   white-space: nowrap;
 }
 
+/* Tabellen aus dem Rich-Text-Editor (ohne .static-table Klasse) */
+.static-page table {
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  width: 100%;
+  max-width: 480px;
+}
+
+.static-page table td {
+  padding: 0.5rem 1rem 0.5rem 0;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+}
+
+.static-page table th {
+  padding: 0.5rem 1rem 0.5rem 0;
+  border-bottom: 2px solid var(--color-border);
+  font-weight: 700;
+  text-align: left;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.static-page table td:last-child {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 .static-callout {
   background: var(--color-primary-light);
   border: 1px solid var(--color-accent);

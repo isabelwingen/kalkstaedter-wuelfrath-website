@@ -1,4 +1,20 @@
 module ApplicationHelper
+  PAGE_CONTENT_ALLOWED_TAGS = %w[
+    h1 h2 h3 h4 h5 h6
+    p br hr
+    strong em s
+    ul ol li
+    blockquote pre code
+    a
+    table thead tbody tr th td
+  ].freeze
+
+  PAGE_CONTENT_ALLOWED_ATTRS = %w[href target rel colspan rowspan].freeze
+
+  def sanitize_page_content(html)
+    sanitize(html, tags: PAGE_CONTENT_ALLOWED_TAGS, attributes: PAGE_CONTENT_ALLOWED_ATTRS)
+  end
+
   def nav_link_class(path)
     current_page?(path) ? "active" : ""
   end
