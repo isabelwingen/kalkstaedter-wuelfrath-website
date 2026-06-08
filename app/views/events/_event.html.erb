@@ -16,6 +16,9 @@
       <% if event.location.present? %>
         <span><span aria-hidden="true">📍</span> <%= event.location %></span>
       <% end %>
+      <% if event.starts_at >= Time.current && event.ticket_url.blank? %>
+        <span><span aria-hidden="true">🎟️</span> Eintritt frei</span>
+      <% end %>
     </div>
     <% if event.description.present? %>
       <p><%= truncate(event.description, length: 120) %></p>
