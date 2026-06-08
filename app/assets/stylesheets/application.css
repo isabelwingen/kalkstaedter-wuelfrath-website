@@ -261,6 +261,8 @@ main { flex: 1; padding: 2rem 0 4rem; }
 
 .event-detail__description p { margin-bottom: 0.75rem; }
 
+.event-detail__free-entry { font-size: 1.1rem; font-weight: 600; color: var(--color-text); margin-bottom: 1rem; }
+
 @media (max-width: 720px) {
   .event-detail {
     grid-template-columns: 1fr;

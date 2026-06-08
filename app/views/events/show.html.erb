@@ -35,6 +35,8 @@
       <% if @event.starts_at >= Time.current %>
         <% if @event.ticket_url.present? %>
           <a href="<%= @event.ticket_url %>" target="_blank" rel="noopener" class="btn btn-primary">Tickets kaufen</a>
+        <% else %>
+          <p class="event-detail__free-entry">🎟️ Eintritt frei</p>
         <% end %>
       <% elsif @event.post&.published? %>
         <%= link_to post_path(@event.post), class: "btn btn-secondary" do %>Bericht lesen<% end %>
