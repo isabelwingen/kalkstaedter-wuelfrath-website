@@ -16,6 +16,14 @@
     <%= f.date_field :published_at %>
   </div>
 
+  <div class="form-group">
+    <%= f.label :event_id, "Zugehörige Veranstaltung (optional)" %>
+    <%= f.select :event_id,
+          @events.map { |e| [ "#{l(e.starts_at, format: :short)} – #{e.title}", e.id ] },
+          { include_blank: "Kein Bezug zu einer Veranstaltung" },
+          class: "form-select" %>
+  </div>
+
   <div class="form-group" data-controller="ai-improve">
     <%= f.label :content, "Inhalt" %>
     <%= f.text_area :content, "data-ai-improve-target": "source" %>

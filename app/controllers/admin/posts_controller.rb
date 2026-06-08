@@ -7,6 +7,7 @@ class Admin::PostsController < Admin::BaseController
 
   def new
     @post = Post.new
+    @events = Event.order(starts_at: :desc)
   end
 
   def create
@@ -18,7 +19,9 @@ class Admin::PostsController < Admin::BaseController
     end
   end
 
-  def edit; end
+  def edit
+    @events = Event.order(starts_at: :desc)
+  end
 
   def update
     if @post.update(post_params)
@@ -40,6 +43,6 @@ class Admin::PostsController < Admin::BaseController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :published_at, :published, :image, :image_alt)
+    params.require(:post).permit(:title, :content, :published_at, :published, :image, :image_alt, :event_id)
   end
 end

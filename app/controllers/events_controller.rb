@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.published.upcoming
-    @past_events = Event.published.past.limit(10)
+    @past_events = Event.published.past.includes(:post).limit(10)
   end
 
   def show

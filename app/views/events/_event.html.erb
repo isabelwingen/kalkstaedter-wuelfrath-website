@@ -24,8 +24,12 @@
   <div class="card-footer">
     <%= event_type_badge(event.event_type) %>
     <%= link_to event_path(event), class: "btn btn-outline btn-sm", aria: { label: "Details zu #{event.title}" } do %>Details<% end %>
-    <% if event.ticket_url.present? %>
-      <a href="<%= event.ticket_url %>" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Tickets</a>
+    <% if event.starts_at >= Time.current %>
+      <% if event.ticket_url.present? %>
+        <a href="<%= event.ticket_url %>" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Tickets</a>
+      <% end %>
+    <% elsif event.post&.published? %>
+      <%= link_to post_path(event.post), class: "btn btn-secondary btn-sm" do %>Bericht lesen<% end %>
     <% end %>
   </div>
 </article>

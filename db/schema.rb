@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_06_03_080422) do
+ActiveRecord::Schema[8.1].define(version: 2026_06_08_071221) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
@@ -63,11 +63,13 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_03_080422) do
   create_table "posts", force: :cascade do |t|
     t.text "content"
     t.datetime "created_at", null: false
+    t.integer "event_id"
     t.string "image_alt"
     t.boolean "published", default: false, null: false
     t.date "published_at"
     t.string "title"
     t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_posts_on_event_id"
   end
 
   create_table "press_links", force: :cascade do |t|
@@ -96,6 +98,14 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_03_080422) do
     t.index ["key"], name: "index_site_settings_on_key", unique: true
   end
 
+  create_table "static_page_contents", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.string "slug", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_static_page_contents_on_slug", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "email_address", null: false
@@ -106,5 +116,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_03_080422) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "posts", "events"
   add_foreign_key "sessions", "users"
 end

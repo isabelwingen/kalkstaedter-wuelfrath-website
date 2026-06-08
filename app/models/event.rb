@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+  has_one :post
   has_one_attached :image
 
   enum :event_type, { auftritt: "auftritt", party: "party", sonstiges: "sonstiges" }
