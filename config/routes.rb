@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get "chronik",    to: "static_pages#chronik",    as: :chronik
   get "impressum",  to: "static_pages#impressum",  as: :impressum
   get "datenschutz", to: "static_pages#datenschutz", as: :datenschutz
+  get "barrierefreiheit", to: "static_pages#barrierefreiheit", as: :barrierefreiheit
 
   # Admin-Bereich
   get "admin/login", to: "sessions#new", as: :admin_login

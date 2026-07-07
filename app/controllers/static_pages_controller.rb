@@ -9,4 +9,5 @@ class StaticPagesController < ApplicationController
   def chronik; end
   def impressum; end
   def datenschutz; end
+  def barrierefreiheit; end
 end
