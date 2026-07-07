@@ -77,6 +77,14 @@ main { flex: 1; padding: 2rem 0 4rem; }
 .skip-link:focus { top: 0; }
 
 /* ============================================================
+   Top-Akzentstreifen
+   ============================================================ */
+.top-accent {
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-accent), #C65A00);
+}
+
+/* ============================================================
    Navigation
    ============================================================ */
 .site-nav {
@@ -299,6 +307,25 @@ main { flex: 1; padding: 2rem 0 4rem; }
    ============================================================ */
 .section { padding: 3rem 0; }
 .section + .section { border-top: 1px solid var(--color-border); }
+.section--primary {
+  background: var(--color-primary);
+  color: #fff;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
+}
+.section--primary h2 { color: #fff; }
+.section--primary a { color: var(--color-accent); }
+.section--primary a:hover { color: #fff; }
+.section--primary .event-agenda__item { border-bottom-color: rgba(255,255,255,0.2); }
+.section--primary .event-agenda__item:first-child { border-top-color: rgba(255,255,255,0.2); }
+.section--primary .event-agenda__info h3 a { color: #fff; }
+.section--primary .event-agenda__info h3 a:hover { color: var(--color-accent); text-decoration: none; }
+.section--primary .event-agenda__location { color: rgba(255,255,255,0.7); }
+.section--primary .event-agenda__date { background: rgba(255,255,255,0.15); }
+.section--primary .btn-outline { color: #fff; border-color: rgba(255,255,255,0.5); }
+.section--primary .btn-outline:hover { background: rgba(255,255,255,0.15); color: #fff; }
 .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.75rem; flex-wrap: wrap; gap: 0.75rem; }
 
 /* ============================================================
@@ -582,10 +609,10 @@ main { flex: 1; padding: 2rem 0 4rem; }
 /* Statische Seiten (Über uns, Mitmachen etc.) */
 .static-page {
   max-width: 760px;
-  padding: 2rem 0 4rem;
+  padding: 0 0 4rem;
 }
 
-.static-page h1 { margin-bottom: 1.5rem; }
+.static-page h1 { margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 3px solid var(--color-primary); }
 
 .static-page h2 {
   margin-top: 2rem;
