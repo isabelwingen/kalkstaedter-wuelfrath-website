@@ -184,15 +184,8 @@ main { flex: 1; padding: 2.5rem 0 5rem; }
    Top Accent – Fünf Notenlinien
    ================================================================ */
 .top-accent {
-  height: 6px;
-  background:
-    repeating-linear-gradient(
-      to bottom,
-      var(--color-accent) 0px,
-      var(--color-accent) 1px,
-      transparent 1px,
-      transparent 2px
-    );
+  height: 3px;
+  background: var(--color-accent);
 }
 
 /* ================================================================
@@ -1272,6 +1265,11 @@ main { flex: 1; padding: 2.5rem 0 5rem; }
 
 .event-detail__description p { margin-bottom: 0.75rem; }
 
+.event-detail--no-poster {
+  display: block;
+  max-width: 680px;
+}
+
 @media (max-width: 720px) {
   .event-detail {
     grid-template-columns: 1fr;
@@ -1322,25 +1320,20 @@ main { flex: 1; padding: 2.5rem 0 5rem; }
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
 }
 
 .link-list li {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: 1.1rem 1.5rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--color-border);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
   flex-wrap: wrap;
-  transition: box-shadow 0.2s, transform 0.2s;
 }
 
-.link-list li:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-1px);
+.link-list li:first-child {
+  border-top: 1px solid var(--color-border);
 }
 
 .link-meta { font-size: 0.82rem; color: var(--color-text-muted); }
@@ -1573,6 +1566,7 @@ main { flex: 1; padding: 2.5rem 0 5rem; }
 
 .footer-col ul { list-style: none; }
 .footer-col ul li + li { margin-top: 0.4rem; }
+
 
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);

@@ -1,7 +1,7 @@
 <% content_for :title, @event.title %>
 
 <div class="container">
-  <div class="event-detail">
+  <div class="event-detail <%= 'event-detail--no-poster' unless @event.image.attached? %>">
 
     <% if @event.image.attached? %>
       <div class="event-detail__poster">
