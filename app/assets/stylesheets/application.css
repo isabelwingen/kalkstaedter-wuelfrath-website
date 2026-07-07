@@ -563,7 +563,7 @@ main { flex: 1; padding: 2.5rem 0 5rem; }
   position: relative;
   margin-top: -5rem;
   background: var(--color-surface);
-  max-width: 540px;
+  max-width: 620px;
   padding: 2rem 2.5rem 2.25rem;
   border-radius: 0 var(--radius) var(--radius) 0;
   border-left: 4px solid var(--color-accent);
