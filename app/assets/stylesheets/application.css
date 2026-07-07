@@ -4,19 +4,18 @@
    CSS Custom Properties – hier Farben anpassen
    ============================================================ */
 :root {
-  --color-primary:      #4db89e;
-  --color-primary-dark: #3a9a82;
-  --color-primary-light:#d4f0e8;
-  --color-accent:       #7ecfba;
-  --color-bg:           #f8fdfb;
+  --color-primary:      #10475E;
+  --color-primary-dark:  #0c3548;
+  --color-primary-light: #dce8ec;
+  --color-accent:       #D68631;
+  --color-bg:           #F3E8DA;
   --color-surface:      #ffffff;
-  --color-text:         #2a2520;
-  --color-text-muted:   #6b6560;
-  --color-border:       #d8ede7;
+  --color-text:         #0A1A24;
+  --color-text-muted:   #4a5568;
+  --color-border:       #d9cfc3;
   --color-danger:       #c0392b;
-  /* Barrierefreie Interaktionsfarbe (4.5:1 auf weißem Hintergrund) */
-  --color-link:         #1a6b55;
-  --color-link-hover:   #124f3e;
+  --color-link:         #10475E;
+  --color-link-hover:   #0c3548;
 
   --font-sans: system-ui, -apple-system, sans-serif;
   --radius:    6px;
@@ -126,18 +125,18 @@ main { flex: 1; padding: 2rem 0 4rem; }
    Hero
    ============================================================ */
 .hero {
-  background: linear-gradient(135deg, #c8eee3 0%, #7ecfba 50%, #4db89e 100%);
+  background: linear-gradient(135deg, #dce8ec 0%, #3D717E 50%, #10475E 100%);
   padding: 4rem 1.25rem;
   text-align: center;
 }
-.hero h1 { color: var(--color-text); margin-bottom: 0.75rem; }
-.hero p { color: #3a5a52; font-size: 1.15rem; max-width: 600px; margin: 0 auto 1.5rem; }
+.hero h1 { color: #fff; margin-bottom: 0.75rem; }
+.hero p { color: #e8ded2; font-size: 1.15rem; max-width: 600px; margin: 0 auto 1.5rem; }
 
 /* ============================================================
    Flash
    ============================================================ */
 .flash { padding: 0.85rem 1.25rem; border-radius: var(--radius); margin-bottom: 1.25rem; font-weight: 500; }
-.flash.notice { background: var(--color-primary-light); color: var(--color-link); border: 1px solid var(--color-accent); }
+.flash.notice { background: var(--color-primary-light); color: var(--color-link); border: 1px solid #3D717E; }
 .flash.alert  { background: #fdecea; color: var(--color-danger); border: 1px solid #f5c6c6; }
 
 /* ============================================================
@@ -191,8 +190,8 @@ main { flex: 1; padding: 2rem 0 4rem; }
   font-size: 0.95rem; font-weight: 600; cursor: pointer; border: 2px solid transparent;
   transition: background 0.15s, color 0.15s, border-color 0.15s; text-align: center; text-decoration: none;
 }
-.btn-primary { background: var(--color-primary); color: var(--color-text); border-color: var(--color-primary); }
-.btn-primary:hover { background: var(--color-primary-dark); border-color: var(--color-primary-dark); color: var(--color-text); text-decoration: none; }
+.btn-primary { background: var(--color-accent); color: #fff; border-color: var(--color-accent); }
+.btn-primary:hover { background: #C65A00; border-color: #C65A00; color: #fff; text-decoration: none; }
 .btn-outline { background: transparent; color: var(--color-link); border-color: var(--color-primary); }
 .btn-outline:hover { background: var(--color-primary-light); color: var(--color-link); text-decoration: none; }
 .btn-danger { background: transparent; color: var(--color-danger); border-color: var(--color-danger); font-size: 0.85rem; padding: 0.3rem 0.75rem; }
@@ -303,7 +302,7 @@ main { flex: 1; padding: 2rem 0 4rem; }
 /* ============================================================
    Footer
    ============================================================ */
-.site-footer { background: var(--color-text); color: #c8c4c0; padding: 2.5rem 0 1.5rem; font-size: 0.9rem; }
+.site-footer { background: var(--color-text); color: #b0bec5; padding: 2.5rem 0 1.5rem; font-size: 0.9rem; }
 .site-footer a { color: var(--color-accent); }
 .site-footer a:hover { color: #fff; }
 .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
@@ -311,7 +310,7 @@ main { flex: 1; padding: 2rem 0 4rem; }
 .footer-col p, .footer-col address { font-style: normal; line-height: 1.8; }
 .footer-col ul { list-style: none; }
 .footer-col ul li + li { margin-top: 0.35rem; }
-.footer-bottom { border-top: 1px solid #3a3530; padding-top: 1.25rem; text-align: center; color: #c8c4c0; font-size: 0.82rem; }
+.footer-bottom { border-top: 1px solid #1e3a4a; padding-top: 1.25rem; text-align: center; color: #b0bec5; font-size: 0.82rem; }
 
 /* ============================================================
    Utility
@@ -497,34 +496,34 @@ main { flex: 1; padding: 2rem 0 4rem; }
    Startseite – Mitmachen-CTA
    ============================================================ */
 .home-cta {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  background: linear-gradient(135deg, #3D717E 0%, var(--color-primary) 50%, var(--color-primary-dark) 100%);
   padding: 3.5rem 0;
   text-align: center;
-  color: var(--color-text);
+  color: #fff;
   margin-top: 1px; /* verhindert Border-Kollaps mit .section */
 }
 
 .home-cta h2 {
-  color: var(--color-text);
+  color: #fff;
   margin-bottom: 0.75rem;
 }
 
 .home-cta p {
-  color: var(--color-text);
+  color: rgba(255, 255, 255, 0.85);
   font-size: 1.05rem;
   max-width: 540px;
   margin: 0 auto 1.75rem;
 }
 
 .home-cta .btn-light {
-  color: var(--color-text);
-  border-color: rgba(42, 37, 32, 0.45);
-  background: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .home-cta .btn-light:hover {
-  color: var(--color-text);
-  background: rgba(255, 255, 255, 0.5);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.3);
   text-decoration: none;
 }
 
@@ -646,7 +645,7 @@ main { flex: 1; padding: 2rem 0 4rem; }
 
 .static-callout {
   background: var(--color-primary-light);
-  border: 1px solid var(--color-accent);
+  border: 1px solid #3D717E;
   border-left: 4px solid var(--color-primary);
   border-radius: var(--radius);
   padding: 1rem 1.25rem;
