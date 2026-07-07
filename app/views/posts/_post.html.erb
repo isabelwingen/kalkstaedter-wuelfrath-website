@@ -4,13 +4,13 @@
       <%= image_tag post.image, alt: post.image_alt.presence || "" %>
     </div>
   <% else %>
-    <div class="card-image-placeholder" role="img" aria-label="Bericht ohne Titelbild">📝</div>
+    <div class="card-image-placeholder" role="img" aria-label="Bericht ohne Titelbild"></div>
   <% end %>
   <div class="card-body">
-    <h3><%= post.title %></h3>
+    <h3><%= link_to post.title, post_path(post) %></h3>
     <div class="card-meta">
       <% if post.published_at.present? %>
-        <span><span aria-hidden="true">📅</span> <%= l post.published_at, format: :long %></span>
+        <span><%= l post.published_at, format: :long %></span>
       <% end %>
     </div>
     <p><%= truncate(post.content, length: 150) %></p>

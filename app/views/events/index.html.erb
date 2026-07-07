@@ -7,15 +7,87 @@
 
   <% if @events.any? %>
     <h2 class="mb-3">Kommende Veranstaltungen</h2>
-    <div class="card-grid mb-3">
-      <%= render @events %>
+    <div class="event-showcase">
+      <% @events.each do |event| %>
+        <article class="event-showcase__item">
+          <div class="event-showcase__poster">
+            <% if event.image.attached? %>
+              <%= link_to event_path(event) do %>
+                <%= image_tag event.image, alt: event.image_alt.presence || event.title %>
+              <% end %>
+            <% else %>
+              <%= link_to event_path(event), class: "event-showcase__placeholder",
+                    aria: { label: event.title } do %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="event-showcase__content">
+            <%= event_type_badge(event.event_type) %>
+            <h3><%= link_to event.title, event_path(event) %></h3>
+            <dl class="event-showcase__meta">
+              <div>
+                <dt>Datum</dt>
+                <dd><%= l event.starts_at, format: :long %></dd>
+              </div>
+              <% if event.location.present? %>
+                <div>
+                  <dt>Ort</dt>
+                  <dd><%= event.location %></dd>
+                </div>
+              <% end %>
+              <% if event.ticket_url.blank? %>
+                <div>
+                  <dt>Eintritt</dt>
+                  <dd>Frei</dd>
+                </div>
+              <% end %>
+            </dl>
+            <% if event.description.present? %>
+              <p class="event-showcase__excerpt"><%= truncate(event.description, length: 180) %></p>
+            <% end %>
+            <div class="event-showcase__actions">
+              <%= link_to "Details", event_path(event), class: "btn btn-outline btn-sm" %>
+              <% if event.ticket_url.present? %>
+                <a href="<%= event.ticket_url %>" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Tickets</a>
+              <% end %>
+            </div>
+          </div>
+        </article>
+      <% end %>
     </div>
   <% end %>
 
   <% if @past_events.any? %>
-    <h2 class="mb-3 mt-3">Vergangene Veranstaltungen</h2>
-    <div class="card-grid">
-      <%= render @past_events %>
+    <div class="section-ornament mt-3" aria-hidden="true"><span></span></div>
+
+    <h2 class="mb-3">Vergangene Veranstaltungen</h2>
+    <div class="event-archive">
+      <% @past_events.each do |event| %>
+        <article class="event-archive__item">
+          <% if event.image.attached? %>
+            <div class="event-archive__thumb">
+              <%= link_to event_path(event) do %>
+                <%= image_tag event.image, alt: event.image_alt.presence || event.title %>
+              <% end %>
+            </div>
+          <% end %>
+          <div class="event-archive__content">
+            <h3><%= link_to event.title, event_path(event) %></h3>
+            <p class="event-archive__meta">
+              <%= l event.starts_at, format: :long %>
+              <% if event.location.present? %>
+                · <%= event.location %>
+              <% end %>
+            </p>
+          </div>
+          <div class="event-archive__aside">
+            <%= event_type_badge(event.event_type) %>
+            <% if event.post&.published? %>
+              <%= link_to "Bericht", post_path(event.post), class: "btn btn-outline btn-sm" %>
+            <% end %>
+          </div>
+        </article>
+      <% end %>
     </div>
   <% end %>
 

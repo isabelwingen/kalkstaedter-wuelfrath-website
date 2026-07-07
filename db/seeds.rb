@@ -58,6 +58,34 @@ events = [
     image_name: "neandertal-auftritt.jpg"
   },
   {
+    title:      "Sommerkonzert im Zeittunnel",
+    event_type: "auftritt",
+    starts_at:  Time.zone.parse("2026-08-23 18:00"),
+    location:   "Zeittunnel, Hammerstein 5, Wülfrath",
+    ticket_url: nil,
+    published:  true,
+    description: "Unser Sommerkonzert in einzigartiger Kulisse! Im Zeittunnel Wülfrath spielen wir ein buntes Programm aus Filmmusik, Pop und Klassik. Der Eintritt ist frei – bringt gerne Decken und Picknickkörbe mit!",
+    image_url:  "#{BASE}/photo-1507838153414-b4b713384a76?w=900&q=80&fm=jpg",
+    image_name: "sommerkonzert-zeittunnel.jpg"
+  },
+  {
+    title:      "Oktoberfest der Kalkstädter",
+    event_type: "party",
+    starts_at:  Time.zone.parse("2026-10-10 19:00"),
+    location:   "Vereinshaus, Flandersbacher Str. 19a, Wülfrath",
+    ticket_url: "https://www.neanderticket.de/654321",
+    published:  true,
+    description: <<~TEXT,
+      O'zapft is! Unser Oktoberfest im Vereinshaus: Dirndl und Lederhosen erwünscht, aber kein Muss. Freibier zum Anstich, danach zünftige Preise an der Theke.
+
+      Für Stimmung sorgen die Kalkstädter mit einem speziellen Oktoberfest-Programm und anschließend unser DJ mit den besten Wiesn-Hits.
+
+      Im Ticketpreis sind 3 Euro Mindestverzehr enthalten.
+    TEXT
+    image_url:  "#{BASE}/photo-1572883454114-1cf0031ede2a?w=900&q=80&fm=jpg",
+    image_name: "oktoberfest.jpg"
+  },
+  {
     title:      "Mallorca-Party",
     event_type: "party",
     starts_at:  Time.zone.parse("2026-06-06 20:00"),

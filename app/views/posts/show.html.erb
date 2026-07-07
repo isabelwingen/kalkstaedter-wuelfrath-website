@@ -6,7 +6,7 @@
       <h1><%= @post.title %></h1>
       <div class="article-meta">
         <% if @post.published_at.present? %>
-          <span><span aria-hidden="true">📅</span> <%= l @post.published_at, format: :long %></span>
+          <span><%= l @post.published_at, format: :long %></span>
         <% end %>
       </div>
     </div>

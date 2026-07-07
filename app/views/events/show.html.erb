@@ -43,7 +43,7 @@
           <a href="<%= @event.ticket_url %>" target="_blank" rel="noopener" class="btn btn-primary">Tickets kaufen</a>
         <% end %>
       <% elsif @event.post&.published? %>
-        <%= link_to post_path(@event.post), class: "btn btn-secondary" do %>Bericht lesen<% end %>
+        <%= link_to post_path(@event.post), class: "btn btn-outline" do %>Bericht lesen<% end %>
       <% end %>
 
       <p class="mt-3"><%= link_to "← Alle Veranstaltungen", events_path %></p>

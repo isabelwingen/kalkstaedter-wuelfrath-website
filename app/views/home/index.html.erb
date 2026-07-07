@@ -1,24 +1,22 @@
 <div class="home-hero">
-  <%= image_tag "orchester.png", alt: "Das Orchester der Kalkstädter Wülfrath e.V.", class: "home-hero__img" %>
-  <div class="home-hero__overlay">
-    <div class="container">
-      <div class="home-hero__content">
-        <p class="home-hero__eyebrow">Kalkstädter Wülfrath e.V. · Querflötenorchester</p>
-        <h1>Das Querflötenorchester aus Wülfrath.</h1>
-        <p>Querflöten, Percussion und ein Repertoire, das Spaß macht – bei Konzerten, Partys und allem dazwischen.</p>
-      </div>
+  <%= image_tag "orchester.png", alt: "Das Orchester der Kalkstädter Wülfrath e.V. bei einem Auftritt", class: "home-hero__img" %>
+  <div class="container">
+    <div class="home-hero__content">
+      <p class="home-hero__eyebrow">Querflötenorchester seit 1954</p>
+      <h1>Musik, die verbindet.</h1>
+      <p>Querflöten, Percussion und ein Repertoire, das Spaß macht – bei Konzerten, Partys und allem dazwischen.</p>
     </div>
   </div>
 </div>
 
 <% if @upcoming_events.any? %>
-<section class="section section--primary">
+<section class="section">
   <div class="container">
     <div class="section-header">
-      <h2>Nächste Veranstaltungen</h2>
-      <%= link_to "Alle Veranstaltungen →", events_path %>
+      <h2>Kommende Veranstaltungen</h2>
+      <%= link_to "Alle ansehen", events_path %>
     </div>
-    <ul class="event-agenda">
+    <ul class="event-agenda event-agenda--light">
       <% @upcoming_events.each do |event| %>
         <li class="event-agenda__item">
           <time class="event-agenda__date" datetime="<%= event.starts_at.to_date %>">
@@ -34,7 +32,7 @@
           <div class="event-agenda__aside">
             <%= event_type_badge(event.event_type) %>
             <% if event.ticket_url.present? %>
-              <a href="<%= event.ticket_url %>" target="_blank" rel="noopener" class="btn btn-sm btn-outline">Tickets</a>
+              <a href="<%= event.ticket_url %>" target="_blank" rel="noopener" class="btn btn-sm btn-primary">Tickets</a>
             <% end %>
           </div>
         </li>
@@ -45,37 +43,71 @@
 <% end %>
 
 <% if @recent_posts.any? %>
+<div class="section-ornament" aria-hidden="true"><span></span></div>
+
 <section class="section">
   <div class="container">
     <div class="section-header">
       <h2>Aktuelles</h2>
-      <%= link_to "Alle Berichte →", posts_path %>
+      <%= link_to "Alle Berichte", posts_path %>
     </div>
-    <div class="card-grid">
-      <%= render @recent_posts %>
-    </div>
+
+    <% featured = @recent_posts.first %>
+    <article class="featured-article">
+      <div class="featured-article__image">
+        <% if featured.image.attached? %>
+          <%= image_tag featured.image, alt: featured.image_alt.presence || "" %>
+        <% else %>
+          <div class="featured-article__image-placeholder" role="img" aria-label="Bericht"></div>
+        <% end %>
+      </div>
+      <div class="featured-article__content">
+        <h3><%= link_to featured.title, post_path(featured) %></h3>
+        <% if featured.published_at.present? %>
+          <p class="featured-article__date"><%= l featured.published_at, format: :long %></p>
+        <% end %>
+        <p class="featured-article__excerpt"><%= truncate(featured.content, length: 200) %></p>
+        <%= link_to "Weiterlesen", post_path(featured), class: "btn btn-outline btn-sm" %>
+      </div>
+    </article>
+
+    <% if @recent_posts.size > 1 %>
+      <ul class="article-list">
+        <% @recent_posts.drop(1).each do |post| %>
+          <li class="article-list__item">
+            <%= link_to post.title, post_path(post) %>
+            <% if post.published_at.present? %>
+              <span class="article-list__date"><%= l post.published_at, format: :long %></span>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
   </div>
 </section>
 <% end %>
 
+<div class="section-ornament" aria-hidden="true"><span></span></div>
+
 <section class="home-cta">
   <div class="container">
     <h2>Lust, dabei zu sein?</h2>
-    <p>Wir freuen uns über neue Gesichter – ob erfahrene Musikerinnen und Musiker oder Anfänger, die Querflöte oder Schlagwerk entdecken möchten.</p>
+    <p>Ob erfahrene Musikerin oder blutiger Anfänger — bei uns findet jeder seinen Platz. Wir freuen uns auf dich.</p>
     <div class="home-cta__actions">
-      <%= link_to "Mitmachen", mitmachen_path, class: "btn btn-light" %>
-      <%= link_to "Zur Musikschule", musikschule_path, class: "btn btn-light" %>
+      <%= link_to "Mitmachen", mitmachen_path, class: "btn btn-primary" %>
+      <%= link_to "Zur Musikschule", musikschule_path, class: "btn btn-outline" %>
     </div>
   </div>
 </section>
 
-<div class="home-social">
+<section class="home-social">
   <div class="container">
-    <p class="home-social__label">Folgt uns auf</p>
+    <h2>Folgt uns</h2>
+    <p class="home-social__subtitle">Bleibt auf dem Laufenden — auf unseren Kanälen teilen wir Einblicke, Termine und Neuigkeiten.</p>
     <ul class="social-row">
-      <li><a href="https://www.instagram.com/kalkstaedterwuelfrath/" target="_blank" rel="noopener">Instagram · @kalkstaedterwuelfrath</a></li>
-      <li><a href="https://www.facebook.com/kalkstaedter/" target="_blank" rel="noopener">Facebook · Kalkstädter Wülfrath</a></li>
-      <li><a href="https://whatsapp.com/channel/0029Vb6bL0yGk1FufD0T5c2S" target="_blank" rel="noopener">WhatsApp-Kanal abonnieren</a></li>
+      <li><a href="https://www.instagram.com/kalkstaedterwuelfrath/" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://www.facebook.com/kalkstaedter/" target="_blank" rel="noopener">Facebook</a></li>
+      <li><a href="https://whatsapp.com/channel/0029Vb6bL0yGk1FufD0T5c2S" target="_blank" rel="noopener">WhatsApp-Kanal</a></li>
     </ul>
   </div>
-</div>
+</section>

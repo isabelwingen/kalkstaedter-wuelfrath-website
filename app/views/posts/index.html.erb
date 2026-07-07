@@ -6,8 +6,26 @@
   </div>
 
   <% if @posts.any? %>
-    <div class="card-grid">
-      <%= render @posts %>
+    <div class="article-feed">
+      <% @posts.each do |post| %>
+        <article class="article-feed__item">
+          <% if post.image.attached? %>
+            <div class="article-feed__image">
+              <%= image_tag post.image, alt: post.image_alt.presence || "" %>
+            </div>
+          <% else %>
+            <div class="article-feed__image-placeholder" role="img" aria-label="Bericht ohne Titelbild"></div>
+          <% end %>
+          <div class="article-feed__content">
+            <h3><%= link_to post.title, post_path(post) %></h3>
+            <% if post.published_at.present? %>
+              <p class="article-feed__meta"><%= l post.published_at, format: :long %></p>
+            <% end %>
+            <p class="article-feed__excerpt"><%= truncate(post.content, length: 180) %></p>
+            <%= link_to "Weiterlesen", post_path(post), class: "article-feed__link" %>
+          </div>
+        </article>
+      <% end %>
     </div>
   <% else %>
     <div class="empty-state">
