@@ -1307,7 +1307,6 @@ main { flex: 1; padding: 2.5rem 0 5rem; }
 }
 
 .article-content {
-  max-width: 680px;
   font-size: 1.05rem;
   line-height: 1.75;
 }
