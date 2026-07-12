@@ -20,8 +20,17 @@
 }
 
 .admin-sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   padding: 1.25rem 1.25rem 1rem;
   border-bottom: 1px solid #1e3a4a;
+}
+
+.admin-brand-logo {
+  height: 2rem;
+  width: auto;
+  filter: brightness(0) invert(1);
 }
 
 .admin-sidebar-brand strong {

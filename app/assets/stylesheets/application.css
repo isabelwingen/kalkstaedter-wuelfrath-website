@@ -42,37 +42,37 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* DM Sans – Fließtext */
+/* Montserrat – Fließtext (Variable Font, Gewichte 100–900) */
 @font-face {
-  font-family: 'DM Sans';
+  font-family: 'Montserrat';
   font-style: normal;
-  font-weight: 400 700;
+  font-weight: 100 900;
   font-display: swap;
-  src: url(/fonts/dm-sans-ext.woff2) format('woff2');
+  src: url(/fonts/montserrat-ext.woff2) format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 @font-face {
-  font-family: 'DM Sans';
+  font-family: 'Montserrat';
   font-style: normal;
-  font-weight: 400 700;
+  font-weight: 100 900;
   font-display: swap;
-  src: url(/fonts/dm-sans.woff2) format('woff2');
+  src: url(/fonts/montserrat.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
-  font-family: 'DM Sans';
+  font-family: 'Montserrat';
   font-style: italic;
-  font-weight: 400;
+  font-weight: 100 900;
   font-display: swap;
-  src: url(/fonts/dm-sans-italic-ext.woff2) format('woff2');
+  src: url(/fonts/montserrat-italic-ext.woff2) format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 @font-face {
-  font-family: 'DM Sans';
+  font-family: 'Montserrat';
   font-style: italic;
-  font-weight: 400;
+  font-weight: 100 900;
   font-display: swap;
-  src: url(/fonts/dm-sans-italic.woff2) format('woff2');
+  src: url(/fonts/montserrat-italic.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -96,7 +96,7 @@
   --color-link-hover:    #0c3548;
 
   --font-display: 'Libre Baskerville', ui-serif, Georgia, serif;
-  --font-sans:    'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-sans:    'Montserrat', system-ui, -apple-system, sans-serif;
 
   --radius:    5px;
   --radius-lg: 10px;
@@ -207,15 +207,25 @@ main { flex: 1; padding: 2.5rem 0 5rem; }
 }
 
 .nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #fff;
+  line-height: 1.25;
+}
+.nav-brand:hover { color: #fff; text-decoration: none; }
+.nav-brand-logo {
+  height: 5.5rem;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+.nav-brand-text {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 1.15rem;
-  color: #fff;
-  line-height: 1.25;
   letter-spacing: -0.01em;
 }
-.nav-brand:hover { color: #fff; text-decoration: none; }
-.nav-brand span {
+.nav-brand-text span {
   display: block;
   font-family: var(--font-sans);
   font-size: 0.72rem;
@@ -1535,6 +1545,14 @@ main { flex: 1; padding: 2.5rem 0 5rem; }
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+}
+
+.footer-logo {
+  display: block;
+  height: auto;
+  width: 16rem;
+  filter: brightness(0) invert(1);
+  margin: 0 auto 1.5rem;
 }
 
 .footer-col h2 {

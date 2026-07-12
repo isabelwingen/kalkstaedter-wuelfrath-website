@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/images/logo-mark.svg" type="image/svg+xml">
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "admin", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
@@ -16,8 +16,11 @@
     <div class="admin-layout">
       <aside class="admin-sidebar" id="admin-sidebar">
         <div class="admin-sidebar-brand">
-          <strong>Kalkstädter Wülfrath</strong>
-          <span>Admin-Bereich</span>
+          <img src="/images/logo-mark.svg" alt="" class="admin-brand-logo" aria-hidden="true">
+          <div>
+            <strong>Kalkstädter Wülfrath</strong>
+            <span>Admin-Bereich</span>
+          </div>
         </div>
         <ul class="admin-nav">
           <li class="nav-section">Übersicht</li>

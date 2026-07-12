@@ -7,7 +7,7 @@
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Kalkstädter Wülfrath e.V. – Das Querflötenorchester aus Wülfrath. Konzerte, Veranstaltungen und Musikschule." %>">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/images/logo-mark.svg" type="image/svg+xml">
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <script defer src="https://analytics.verwaltung-kalkstaedter.de/script.js" data-website-id="1a964c6e-9e92-445c-9aab-6980c95d75e3"></script>
@@ -19,8 +19,11 @@
     <nav class="site-nav">
       <div class="container">
         <%= link_to root_path, class: "nav-brand" do %>
-          Kalkstädter Wülfrath e.V.
-          <span>Querflötenorchester</span>
+          <img src="/images/logo-mark.svg" alt="" class="nav-brand-logo" aria-hidden="true">
+          <span class="nav-brand-text">
+            Kalkstädter Wülfrath e.V.
+            <span>Querflötenorchester</span>
+          </span>
         <% end %>
         <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-nav"
                 onclick="var m=document.getElementById('main-nav');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))"><span aria-hidden="true">☰</span></button>
@@ -75,6 +78,7 @@
             </ul>
           </div>
         </div>
+        <img src="/images/logo-full.svg" alt="Kalkstädter Wülfrath e.V." class="footer-logo">
         <div class="footer-bottom">
           &copy; <%= Date.current.year %> Kalkstädter Wülfrath e.V. &middot;
           <%= link_to "Impressum", impressum_path %> &middot;
