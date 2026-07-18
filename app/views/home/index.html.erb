@@ -2,8 +2,8 @@
   <%= image_tag "orchester.png", alt: "Das Orchester der Kalkstädter Wülfrath e.V. bei einem Auftritt", class: "home-hero__img" %>
   <div class="container">
     <div class="home-hero__content">
-      <p class="home-hero__eyebrow">Musik, die verbindet</p>
-      <h1>Das Querflötenorchester aus Wülfrath.</h1>
+      <p class="home-hero__eyebrow">Musik aus der Kalkstadt · seit 1954</p>
+      <h1>Das Querflötenorchester aus Wülfrath</h1>
       <p>Querflöten, Percussion und ein Repertoire, das Spaß macht – bei Konzerten, Partys und allem dazwischen.</p>
     </div>
   </div>
@@ -16,39 +16,46 @@
       <h2>Kommende Veranstaltungen</h2>
       <%= link_to "Alle ansehen", events_path %>
     </div>
-    <ul class="event-agenda event-agenda--light">
+    <div class="event-ledger">
       <% @upcoming_events.each do |event| %>
-        <li class="event-agenda__item">
-          <time class="event-agenda__date" datetime="<%= event.starts_at.to_date %>">
-            <span class="event-agenda__day"><%= event.starts_at.strftime("%-d") %></span>
-            <span class="event-agenda__month"><%= l(event.starts_at, format: "%b") %></span>
-          </time>
-          <div class="event-agenda__info">
+        <article class="event-ledger__item">
+          <p class="event-ledger__date">
+            <time datetime="<%= event.starts_at.iso8601 %>">
+              <span class="event-ledger__day"><%= event.starts_at.strftime("%-d.") %></span>
+              <span class="event-ledger__month"><%= l(event.starts_at, format: "%b %Y") %></span>
+              <span class="event-ledger__weekday"><%= l(event.starts_at, format: "%A, %-H Uhr") %></span>
+            </time>
+          </p>
+          <div class="event-ledger__info">
+            <p class="event-ledger__type event-ledger__type--<%= event.event_type %>">
+              <span class="event-ledger__notehead" aria-hidden="true"></span><%= event_type_label(event.event_type) %>
+            </p>
             <h3><%= link_to event.title, event_path(event) %></h3>
             <% if event.location.present? %>
-              <span class="event-agenda__location"><%= event.location %></span>
+              <p class="event-ledger__location"><%= event.location %></p>
             <% end %>
           </div>
-          <div class="event-agenda__aside">
-            <%= event_type_badge(event.event_type) %>
+          <p class="event-ledger__action">
             <% if event.ticket_url.present? %>
-              <a href="<%= event.ticket_url %>" target="_blank" rel="noopener" class="btn btn-sm btn-primary">Tickets</a>
+              <a href="<%= event.ticket_url %>" target="_blank" rel="noopener" class="btn btn-primary">Tickets</a>
+            <% else %>
+              <span class="event-ledger__free">Eintritt frei</span>
             <% end %>
-          </div>
-        </li>
+          </p>
+        </article>
       <% end %>
-    </ul>
+    </div>
   </div>
 </section>
 <% end %>
 
 <% if @recent_posts.any? %>
-<div class="section-ornament" aria-hidden="true"><span></span></div>
+<%= render "shared/ornament" %>
 
 <section class="section">
   <div class="container">
     <div class="section-header">
-      <h2>Aktuelles</h2>
+      <h2>Berichte</h2>
       <%= link_to "Alle Berichte", posts_path %>
     </div>
 
@@ -87,27 +94,42 @@
 </section>
 <% end %>
 
-<div class="section-ornament" aria-hidden="true"><span></span></div>
+<%= render "shared/ornament" %>
 
-<section class="home-cta">
+<section class="home-join">
   <div class="container">
-    <h2>Lust, dabei zu sein?</h2>
-    <p>Ob erfahrene Musikerin oder blutiger Anfänger — bei uns findet jeder seinen Platz. Wir freuen uns auf dich.</p>
-    <div class="home-cta__actions">
-      <%= link_to "Mitmachen", mitmachen_path, class: "btn btn-primary" %>
-      <%= link_to "Zur Musikschule", musikschule_path, class: "btn btn-outline" %>
+    <div class="section-header">
+      <h2>Mitmachen</h2>
     </div>
-  </div>
-</section>
-
-<section class="home-social">
-  <div class="container">
-    <h2>Folgt uns</h2>
-    <p class="home-social__subtitle">Bleibt auf dem Laufenden — auf unseren Kanälen teilen wir Einblicke, Termine und Neuigkeiten.</p>
-    <ul class="social-row">
-      <li><a href="https://www.instagram.com/kalkstaedterwuelfrath/" target="_blank" rel="noopener">Instagram</a></li>
-      <li><a href="https://www.facebook.com/kalkstaedter/" target="_blank" rel="noopener">Facebook</a></li>
-      <li><a href="https://whatsapp.com/channel/0029Vb6bL0yGk1FufD0T5c2S" target="_blank" rel="noopener">WhatsApp-Kanal</a></li>
-    </ul>
+    <p class="home-join__lead">Wir suchen keine Perfektion. Wir suchen Menschen mit Freude an Musik, die donnerstags Zeit haben.</p>
+    <div class="home-join__cols">
+      <div class="home-join__col">
+        <h3>Du spielst schon?</h3>
+        <p>
+          Querflöte oder Percussion: Schreib uns kurz, dann laden wir dich zur Schnupperprobe
+          an einem Donnerstagabend ein. Unverbindlich, ohne Vorspielen – die Noten legen
+          wir dir hin.
+        </p>
+        <div class="home-join__actions">
+          <a href="mailto:info@kalkstaedter-wuelfrath.de?subject=Schnupperprobe" class="btn btn-primary">Schreib uns</a>
+          <%= link_to "Mehr erfahren", mitmachen_path, class: "btn btn-outline" %>
+        </div>
+      </div>
+      <div class="home-join__col">
+        <h3>Du fängst neu an?</h3>
+        <p>
+          Unsere Musikschule bringt dir Querflöte oder Percussion bei – egal, ob du acht
+          bist oder achtundsechzig. Unterricht bei uns im Verein, und sobald es passt,
+          geht es mit ins Orchester.
+        </p>
+        <%= link_to "Zur Musikschule", musikschule_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+    <p class="home-join__social">
+      Neuigkeiten und Einblicke gibt's auf
+      <a href="https://www.instagram.com/kalkstaedterwuelfrath/" target="_blank" rel="noopener">Instagram</a>,
+      <a href="https://www.facebook.com/kalkstaedter/" target="_blank" rel="noopener">Facebook</a>
+      und im <a href="https://whatsapp.com/channel/0029Vb6bL0yGk1FufD0T5c2S" target="_blank" rel="noopener">WhatsApp-Kanal</a>.
+    </p>
   </div>
 </section>

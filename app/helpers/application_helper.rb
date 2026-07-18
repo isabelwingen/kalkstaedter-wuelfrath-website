@@ -14,9 +14,12 @@ module ApplicationHelper
     request.path.start_with?(path) ? "active" : ""
   end
 
+  def event_type_label(event_type)
+    { "auftritt" => "Auftritt", "party" => "Party", "sonstiges" => "Sonstiges" }[event_type] || event_type
+  end
+
   def event_type_badge(event_type)
-    label = { "auftritt" => "Auftritt", "party" => "Party", "sonstiges" => "Sonstiges" }[event_type] || event_type
-    content_tag(:span, label, class: "badge badge-#{event_type}")
+    content_tag(:span, event_type_label(event_type), class: "badge badge-#{event_type}")
   end
 
   def platform_icon(platform)

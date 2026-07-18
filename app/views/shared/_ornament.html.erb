@@ -1,0 +1,30 @@
+<%# Sektions-Trenner: fünf Notenlinien mit drei aufsteigenden Noten %>
+<div class="section-ornament <%= local_assigns[:css] %>" aria-hidden="true">
+  <svg viewBox="0 0 220 34" width="220" height="34" focusable="false">
+    <defs>
+      <linearGradient id="staff-fade" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="220" y2="0">
+        <stop offset="0" stop-color="var(--color-border)" stop-opacity="0"/>
+        <stop offset="0.2" stop-color="var(--color-border)" stop-opacity="1"/>
+        <stop offset="0.8" stop-color="var(--color-border)" stop-opacity="1"/>
+        <stop offset="1" stop-color="var(--color-border)" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <g stroke="url(#staff-fade)" stroke-width="1">
+      <line x1="0" y1="8"  x2="220" y2="8"/>
+      <line x1="0" y1="13" x2="220" y2="13"/>
+      <line x1="0" y1="18" x2="220" y2="18"/>
+      <line x1="0" y1="23" x2="220" y2="23"/>
+      <line x1="0" y1="28" x2="220" y2="28"/>
+    </g>
+    <g fill="var(--color-accent-deep)">
+      <%# Unter der Mittellinie: Hals nach oben (rechts am Kopf) %>
+      <ellipse cx="86" cy="23" rx="3.8" ry="2.8" transform="rotate(-20 86 23)"/>
+      <rect x="89" y="10.5" width="1.3" height="12.8"/>
+      <%# Ab der Mittellinie: Hals nach unten (links am Kopf) %>
+      <ellipse cx="106" cy="18" rx="3.8" ry="2.8" transform="rotate(-20 106 18)"/>
+      <rect x="101.7" y="17.7" width="1.3" height="12.8"/>
+      <ellipse cx="126" cy="13" rx="3.8" ry="2.8" transform="rotate(-20 126 13)"/>
+      <rect x="121.7" y="12.7" width="1.3" height="12.8"/>
+    </g>
+  </svg>
+</div>

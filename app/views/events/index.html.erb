@@ -58,7 +58,7 @@
   <% end %>
 
   <% if @past_events.any? %>
-    <div class="section-ornament mt-3" aria-hidden="true"><span></span></div>
+    <%= render "shared/ornament", css: "mt-3" %>
 
     <h2 class="mb-3">Vergangene Veranstaltungen</h2>
     <div class="event-archive">
