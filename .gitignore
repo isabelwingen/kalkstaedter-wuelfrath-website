@@ -39,3 +39,6 @@
 # IDE
 .idea/
 
+# Wegwerf-Design-Entwürfe (lokale Prototypen, nicht deployen)
+/public/design/
+
