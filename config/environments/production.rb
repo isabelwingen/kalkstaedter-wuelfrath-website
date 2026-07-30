@@ -30,8 +30,17 @@ Rails.application.configure do
   # Skip http-to-https redirect for the default health check endpoint.
   # config.ssl_options = { redirect: { exclude: ->(request) { request.path == "/up" } } }
 
-  # Mailer via Resend
-  config.action_mailer.delivery_method = :resend
+  # Mailer via Mailjet (SMTP relay)
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: "in-v3.mailjet.com",
+    port: 587,
+    domain: ENV.fetch("APP_HOST", "localhost"),
+    user_name: ENV["MAILJET_API_KEY"],
+    password: ENV["MAILJET_SECRET_KEY"],
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
   config.action_mailer.default_url_options = { host: ENV.fetch("APP_HOST", "localhost"), protocol: ENV.fetch("APP_PROTOCOL", "https") }
 
   # Log to STDOUT with the current request id as a default log tag.
