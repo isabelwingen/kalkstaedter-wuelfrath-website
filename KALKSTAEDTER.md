@@ -39,9 +39,9 @@ Die Kalkstädter Wülfrath sind ein **Querflötenorchester**, das sich zum Ziel 
 
 ## Musikalische Leitung
 
-- **Laura Brunswig** – Musikalische Leitung (seit Mai 2019)
+Die musikalische Leitung ist seit Mai 2019 unverändert besetzt.
 
-*(Vorgängerin: Tanja Bohn (geb. Rödel), 2008–2019; davor Bernd Wysk, 2005–2010)*
+*(Frühere Leitungen: Tanja Bohn (geb. Rödel), 2008–2019; davor Bernd Wysk, 2005–2010)*
 
 ## Vereinshaus
 
@@ -56,7 +56,7 @@ Flandersbacher Straße 19a, 42489 Wülfrath
 | Anfang 1990er | Einführung der Notenlehre, Modernisierung des Repertoires |
 | 2005 | Umstellung auf Konzertflöten; Verpflichtung von Bernd Wysk als Musiklehrer/Dirigent; Gründung der vereinseigenen Musikschule |
 | 2008 | Tanja Bohn (geb. Rödel) übernimmt die musikalische Leitung |
-| Mai 2019 | Laura Brunswig übernimmt die musikalische Leitung |
+| Mai 2019 | Wechsel in der musikalischen Leitung |
 
 ## Mitgliedschaft
 
@@ -69,7 +69,7 @@ Gesucht werden Musiker/innen, die folgende Instrumente sicher beherrschen:
 
 Anfänger (Kinder und Erwachsene) werden ebenfalls ausgebildet.
 
-Kontakt: Laura Brunswig – info@kalkstaedter-wuelfrath.de
+Kontakt: info@kalkstaedter-wuelfrath.de
 
 ### Fördernde Mitgliedschaft
 Auch ohne Instrument kann man den Verein finanziell und tatkräftig unterstützen.

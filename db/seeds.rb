@@ -174,7 +174,7 @@ posts = [
     content: <<~TEXT,
       Der 1. Mai ist bei den Kalkstädtern Tradition: Auf dem Hof des Vereinshauses an der Flandersbacher Straße fand auch in diesem Jahr das beliebte Freiluftkonzert statt. Das Wetter spielte perfekt mit, die Sonne ließ sich den ganzen Tag nicht lumpen – und der Andrang war entsprechend riesig.
 
-      Unter der Leitung von Laura Brunswig präsentierte das Orchester ein rein eigenes Programm – ohne Gastensemble. In zwei Teilen blätterten die Musiker durch ihr breites Repertoire: von klassischen Werken über Filmmusik bis hin zu schwungvollen Arrangements, die zum Mitwippen einluden.
+      Das Orchester präsentierte ein rein eigenes Programm – ohne Gastensemble. In zwei Teilen blätterten die Musiker durch ihr breites Repertoire: von klassischen Werken über Filmmusik bis hin zu schwungvollen Arrangements, die zum Mitwippen einluden.
 
       Für das leibliche Wohl war bestens gesorgt: Gegrilltes, Kaltgetränke und Kaffee hielten Besucher und Musikerinnen bei Laune. Die Kinder hatten ihre eigene Attraktion – eine Hüpfburg, die den ganzen Nachmittag in Betrieb war. Der Eintritt war wie immer frei.
 
