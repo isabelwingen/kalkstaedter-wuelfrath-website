@@ -48,7 +48,7 @@ Fehler müssen behoben werden bevor committed wird.
 - `/admin` — Admin-Dashboard (Login erforderlich)
 - `/admin/login` → `sessions#new`
 - `/passwords/new` — Passwort-Reset anfordern
-- Öffentliche Seiten: `/ueber-uns`, `/mitmachen`, `/musikschule`, `/chronik`, `/impressum`, `/datenschutz`
+- Öffentliche Seiten: `/ueber-uns`, `/mitmachen`, `/musikschule`, `/impressum`, `/datenschutz`
 
 ## Admin-Bereich
 

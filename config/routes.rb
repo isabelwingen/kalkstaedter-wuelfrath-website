@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   get "ueber-uns",  to: "static_pages#ueber_uns",  as: :ueber_uns
   get "mitmachen",  to: "static_pages#mitmachen",  as: :mitmachen
   get "musikschule", to: "static_pages#musikschule", as: :musikschule
-  get "chronik",    to: "static_pages#chronik",    as: :chronik
   get "impressum",  to: "static_pages#impressum",  as: :impressum
   get "datenschutz", to: "static_pages#datenschutz", as: :datenschutz
   get "barrierefreiheit", to: "static_pages#barrierefreiheit", as: :barrierefreiheit
